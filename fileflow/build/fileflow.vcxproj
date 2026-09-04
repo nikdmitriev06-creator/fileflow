@@ -366,6 +366,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\main.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\Job.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\JobQueue.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\WorkerPool.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

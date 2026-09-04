@@ -1,53 +1,68 @@
+#include <chrono>
 #include <iostream>
 #include <memory>
+#include <thread>
 
 #include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
+#include "domain/job/WorkerPool.h"
 
 int main()
 {
     using fileflow::domain::Job;
     using fileflow::domain::JobOperation;
     using fileflow::domain::JobQueue;
+    using fileflow::domain::WorkerPool;
 
+    std::cout << "FileFlow v0.1.0\n";
+    std::cout << "Starting application...\n\n";
+
+    // JobQueue живёт дольше WorkerPool,
+    // потому что worker'ы используют эту очередь.
     JobQueue queue;
 
-    auto job1 = std::make_shared<Job>(
-        1,
-        "image.jpg",
-        JobOperation::CalculateHash
-    );
+    // Создаём 3 worker-потока.
+    WorkerPool workerPool(queue, 3);
 
-    auto job2 = std::make_shared<Job>(
-        2,
-        "document.pdf",
-        JobOperation::Compress
-    );
+    // Добавляем несколько задач.
+    for (Job::Id id = 1; id <= 6; ++id) {
+        auto job = std::make_shared<Job>(
+            id,
+            "file_" + std::to_string(id) + ".jpg",
+            JobOperation::CalculateHash
+        );
 
-    queue.push(job1);
-    queue.push(job2);
+        queue.push(std::move(job));
 
-    std::cout << "Queue size: " << queue.size() << '\n';
-
-    auto firstJob = queue.pop();
-
-    if (firstJob) {
-        std::cout << "Processing job: "
-            << firstJob->id()
+        std::cout
+            << "Submitted job: "
+            << id
             << '\n';
     }
 
-    auto secondJob = queue.pop();
+    std::cout << "\nAll jobs submitted.\n";
 
-    if (secondJob) {
-        std::cout << "Processing job: "
-            << secondJob->id()
-            << '\n';
-    }
+    // Здесь main-поток просто ждёт,
+    // пока worker'ы обработают задачи.
+    //
+    // Позже здесь будет HTTP server,
+    // поэтому main() больше не будет заниматься
+    // ручным ожиданием задач.
+    std::this_thread::sleep_for(
+        std::chrono::seconds(3)
+    );
 
-    std::cout << "Queue size: " << queue.size() << '\n';
+    std::cout << "\nStopping FileFlow...\n";
 
-    queue.shutdown();
+    // При выходе из main:
+    //
+    // 1. WorkerPool уничтожается.
+    // 2. Его destructor вызывает queue.shutdown().
+    // 3. Worker'ы просыпаются.
+    // 4. Worker'ы завершают свои циклы.
+    // 5. std::jthread дожидается их завершения.
+    //
+    // Это называется RAII-based resource management.
 
     return 0;
 }

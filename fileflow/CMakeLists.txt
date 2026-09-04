@@ -14,6 +14,7 @@ add_executable(fileflow
     src/main.cpp
     src/domain/job/Job.cpp
     src/domain/job/JobQueue.cpp
+    src/domain/job/WorkerPool.cpp
 )
 
 target_compile_features(fileflow PRIVATE cxx_std_20)

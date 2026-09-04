@@ -128,6 +128,7 @@
     <ClCompile Include="src\domain\job\JobQueue.cpp" />
     <ClCompile Include="src\domain\job\Job.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\domain\job\WorkerPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClInclude Include="src\domain\job\JobQueue.h" />
     <ClInclude Include="src\domain\job\Job.h" />
+    <ClInclude Include="src\domain\job\WorkerPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
