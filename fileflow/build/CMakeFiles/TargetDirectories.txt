@@ -1,0 +1,3 @@
+C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/fileflow.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/ZERO_CHECK.dir
