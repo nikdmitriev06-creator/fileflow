@@ -1,7 +1,5 @@
-#include <chrono>
 #include <iostream>
 #include <memory>
-#include <thread>
 
 #include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
@@ -17,15 +15,16 @@ int main()
     std::cout << "FileFlow v0.1.0\n";
     std::cout << "Starting application...\n\n";
 
-    // JobQueue живёт дольше WorkerPool,
-    // потому что worker'ы используют эту очередь.
+    // Queue должна жить дольше WorkerPool,
+    // потому что worker'ы используют её во время работы.
     JobQueue queue;
 
-    // Создаём 3 worker-потока.
+    // Запускаем три worker-потока.
     WorkerPool workerPool(queue, 3);
 
-    // Добавляем несколько задач.
+    // Добавляем шесть задач.
     for (Job::Id id = 1; id <= 6; ++id) {
+
         auto job = std::make_shared<Job>(
             id,
             "file_" + std::to_string(id) + ".jpg",
@@ -42,27 +41,22 @@ int main()
 
     std::cout << "\nAll jobs submitted.\n";
 
-    // Здесь main-поток просто ждёт,
-    // пока worker'ы обработают задачи.
+    // Ждём, пока ВСЕ задачи будут завершены.
     //
-    // Позже здесь будет HTTP server,
-    // поэтому main() больше не будет заниматься
-    // ручным ожиданием задач.
-    std::this_thread::sleep_for(
-        std::chrono::seconds(3)
-    );
-
-    std::cout << "\nStopping FileFlow...\n";
-
-    // При выходе из main:
+    // Это принципиально отличается от:
     //
-    // 1. WorkerPool уничтожается.
-    // 2. Его destructor вызывает queue.shutdown().
-    // 3. Worker'ы просыпаются.
-    // 4. Worker'ы завершают свои циклы.
-    // 5. std::jthread дожидается их завершения.
+    // sleep_for(3 seconds)
     //
-    // Это называется RAII-based resource management.
+    // Здесь программа ждёт ровно столько,
+    // сколько действительно требуется worker'ам.
+    queue.waitUntilEmpty();
 
+    std::cout << "\nAll jobs completed.\n";
+
+    // WorkerPool уничтожится автоматически при выходе
+    // из main().
+    //
+    // Его destructor вызовет queue.shutdown(),
+    // после чего worker'ы завершат свои циклы.
     return 0;
 }
