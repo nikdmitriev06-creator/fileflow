@@ -1,24 +1,58 @@
 #include "WorkerPool.h"
 
-#include <chrono>
+#include "application/processing/FileProcessor.h"
+
 #include <iostream>
-#include <thread>
+
+namespace {
+
+    class JobCompletionGuard {
+    public:
+        explicit JobCompletionGuard(
+            fileflow::domain::JobQueue& queue
+        )
+            : queue_(queue)
+        {
+        }
+
+        ~JobCompletionGuard()
+        {
+            // RAII гарантирует вызов taskCompleted()
+            // при любом выходе из текущей области видимости.
+            //
+            // Это работает и при обычном завершении,
+            // и при исключении.
+            queue_.taskCompleted();
+        }
+
+        JobCompletionGuard(const JobCompletionGuard&) = delete;
+        JobCompletionGuard& operator=(
+            const JobCompletionGuard&
+            ) = delete;
+
+    private:
+        fileflow::domain::JobQueue& queue_;
+    };
+
+} // namespace
 
 namespace fileflow::domain {
 
-    WorkerPool::WorkerPool(JobQueue& queue, std::size_t workerCount)
+    WorkerPool::WorkerPool(
+        JobQueue& queue,
+        std::size_t workerCount
+    )
         : queue_(queue)
     {
-        // Заранее выделяем память под worker'ов,
-        // чтобы vector не делал лишних reallocations.
         workers_.reserve(workerCount);
 
         for (std::size_t i = 0; i < workerCount; ++i) {
 
-            // std::jthread запускает функцию в отдельном потоке.
             workers_.emplace_back(
-                [this, workerId = i](std::stop_token /*stopToken*/) {
-                    workerLoop(workerId);
+                [this, workerId = i](
+                    std::stop_token /*stopToken*/
+                    ) {
+                        workerLoop(workerId);
                 }
             );
         }
@@ -26,70 +60,88 @@ namespace fileflow::domain {
 
     WorkerPool::~WorkerPool()
     {
-        // Просим очередь прекратить приём новых задач.
-        //
-        // При этом уже находящиеся в очереди задачи
-        // всё равно будут обработаны worker'ами.
+        // Запрещаем добавление новых задач
+        // и будим ожидающих worker'ов.
         queue_.shutdown();
 
-        // После выхода из destructor body начинается
-        // уничтожение members.
-        //
-        // std::jthread автоматически вызовет request_stop()
-        // и дождётся завершения каждого потока.
+        // std::jthread автоматически дождётся
+        // завершения worker-потоков.
     }
 
     void WorkerPool::workerLoop(std::size_t workerId)
     {
+        application::processing::FileProcessor processor;
+
         while (true) {
 
-            // Если работы нет, поток будет заблокирован здесь,
-            // а не будет бессмысленно загружать CPU.
+            // Если работы нет, worker блокируется внутри pop().
             auto job = queue_.pop();
 
             // nullptr означает:
-            // shutdown() вызван И очередь больше не содержит задач.
+            // shutdown активирован и новых задач больше нет.
             if (!job) {
                 break;
             }
 
-            std::cout
-                << "Worker " << workerId
-                << " processing job " << job->id()
-                << '\n';
-
-            // Пока настоящего FileProcessor ещё нет.
-            // Имитируем обработку файла.
-            std::this_thread::sleep_for(
-                std::chrono::milliseconds(500)
-            );
-
+            // С этого момента задача считается
+            // находящейся в состоянии processing.
             job->start();
 
-            std::cout
-                << "Worker " << workerId
-                << " started job " << job->id()
-                << '\n';
-
-            std::this_thread::sleep_for(
-                std::chrono::milliseconds(500)
-            );
-
-            job->complete();
-
-            std::cout
-                << "Worker " << workerId
-                << " completed job " << job->id()
-                << '\n';
-
-            // Сообщаем JobQueue, что эта Job полностью завершена.
+            // Создаём RAII guard.
             //
-            // Это важно для waitUntilEmpty().
-            queue_.taskCompleted();
+            // Когда worker закончит текущую итерацию,
+            // guard автоматически вызовет taskCompleted().
+            JobCompletionGuard completionGuard(queue_);
+
+            std::cout
+                << "Worker "
+                << workerId
+                << " processing job "
+                << job->id()
+                << " ("
+                << job->filename()
+                << ")\n";
+
+            try {
+
+                // Worker не знает деталей обработки.
+                // Он просто передаёт Job специализированному компоненту.
+                const auto result = processor.process(*job);
+
+                job->complete();
+
+                std::cout
+                    << "Worker "
+                    << workerId
+                    << " completed job "
+                    << job->id()
+                    << '\n';
+
+                std::cout
+                    << "  Hash: "
+                    << result.hash
+                    << '\n';
+
+            }
+            catch (const std::exception& error) {
+
+                // FileProcessor сообщил об ошибке.
+                job->fail(error.what());
+
+                std::cerr
+                    << "Worker "
+                    << workerId
+                    << " failed job "
+                    << job->id()
+                    << ": "
+                    << error.what()
+                    << '\n';
+            }
         }
 
         std::cout
-            << "Worker " << workerId
+            << "Worker "
+            << workerId
             << " stopped\n";
     }
 

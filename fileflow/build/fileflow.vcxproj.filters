@@ -13,6 +13,9 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\WorkerPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\CMakeLists.txt" />

@@ -118,6 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\application\processing\FileProcessor.cpp" />
     <ClCompile Include="src\domain\job\JobQueue.cpp" />
     <ClCompile Include="src\domain\job\Job.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -132,11 +134,13 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
+    <Text Include="test.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\application\processing\FileProcessor.h" />
     <ClInclude Include="src\domain\job\JobQueue.h" />
     <ClInclude Include="src\domain\job\Job.h" />
     <ClInclude Include="src\domain\job\WorkerPool.h" />

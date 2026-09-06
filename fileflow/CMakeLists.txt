@@ -12,9 +12,34 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(fileflow
     src/main.cpp
+
     src/domain/job/Job.cpp
     src/domain/job/JobQueue.cpp
     src/domain/job/WorkerPool.cpp
+
+    src/application/processing/FileProcessor.cpp
+)
+
+# Говорим компилятору, что src/ является
+# корневой директорией для #include.
+#
+# Поэтому:
+#
+# #include "domain/job/Job.h"
+#
+# будет искать:
+#
+# src/domain/job/Job.h
+#
+# А:
+#
+# #include "application/processing/FileProcessor.h"
+#
+# будет искать:
+#
+# src/application/processing/FileProcessor.h
+target_include_directories(fileflow PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 target_compile_features(fileflow PRIVATE cxx_std_20)

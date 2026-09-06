@@ -1,5 +1,6 @@
 #include "Job.h"
 
+#include <stdexcept>
 #include <utility>
 
 namespace fileflow::domain {
@@ -36,19 +37,43 @@ namespace fileflow::domain {
         return status_;
     }
 
-    void Job::start() noexcept
+    void Job::start()
     {
+        if (status_ != JobStatus::Pending) {
+            throw std::logic_error(
+                "Job can only be started from Pending state"
+            );
+        }
+
         status_ = JobStatus::Processing;
     }
 
-    void Job::complete() noexcept
+    void Job::complete()
     {
+        if (status_ != JobStatus::Processing) {
+            throw std::logic_error(
+                "Job can only be completed from Processing state"
+            );
+        }
+
         status_ = JobStatus::Completed;
     }
 
-    void Job::fail() noexcept
+    void Job::fail(std::string error)
     {
+        if (status_ != JobStatus::Processing) {
+            throw std::logic_error(
+                "Job can only fail from Processing state"
+            );
+        }
+
         status_ = JobStatus::Failed;
+        error_ = std::move(error);
+    }
+
+    const std::optional<std::string>& Job::error() const noexcept
+    {
+        return error_;
     }
 
 } // namespace fileflow::domain

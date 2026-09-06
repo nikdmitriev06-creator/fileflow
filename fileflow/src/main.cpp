@@ -15,19 +15,19 @@ int main()
     std::cout << "FileFlow v0.1.0\n";
     std::cout << "Starting application...\n\n";
 
-    // Queue должна жить дольше WorkerPool,
-    // потому что worker'ы используют её во время работы.
+    // Queue должна существовать дольше WorkerPool,
+    // потому что worker'ы используют её.
     JobQueue queue;
 
-    // Запускаем три worker-потока.
+    // Запускаем 3 worker-потока.
     WorkerPool workerPool(queue, 3);
 
-    // Добавляем шесть задач.
+    // Создаём несколько задач для одного файла.
     for (Job::Id id = 1; id <= 6; ++id) {
 
         auto job = std::make_shared<Job>(
             id,
-            "file_" + std::to_string(id) + ".jpg",
+            "test.txt",
             JobOperation::CalculateHash
         );
 
@@ -39,24 +39,18 @@ int main()
             << '\n';
     }
 
-    std::cout << "\nAll jobs submitted.\n";
+    std::cout << "\nWaiting for jobs...\n\n";
 
-    // Ждём, пока ВСЕ задачи будут завершены.
-    //
-    // Это принципиально отличается от:
-    //
-    // sleep_for(3 seconds)
-    //
-    // Здесь программа ждёт ровно столько,
-    // сколько действительно требуется worker'ам.
+    // Ждём фактического завершения всех задач.
     queue.waitUntilEmpty();
 
     std::cout << "\nAll jobs completed.\n";
 
-    // WorkerPool уничтожится автоматически при выходе
-    // из main().
+    // При выходе:
     //
-    // Его destructor вызовет queue.shutdown(),
-    // после чего worker'ы завершат свои циклы.
+    // 1. WorkerPool destructor вызывает shutdown().
+    // 2. Worker'ы просыпаются.
+    // 3. Worker'ы выходят из workerLoop().
+    // 4. std::jthread дожидается их завершения.
     return 0;
 }
