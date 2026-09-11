@@ -1,9 +1,13 @@
 #include <iostream>
 #include <memory>
+#include <string>
 
 #include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
 #include "domain/job/WorkerPool.h"
+
+#include "infrastructure/config/Config.h"
+#include "infrastructure/logging/Logger.h"
 
 int main()
 {
@@ -12,45 +16,84 @@ int main()
     using fileflow::domain::JobQueue;
     using fileflow::domain::WorkerPool;
 
-    std::cout << "FileFlow v0.1.0\n";
-    std::cout << "Starting application...\n\n";
+    using fileflow::infrastructure::config::loadConfig;
+    using fileflow::infrastructure::logging::Logger;
 
-    // Queue должна существовать дольше WorkerPool,
-    // потому что worker'ы используют её.
-    JobQueue queue;
+    try {
+        // Загружаем настройки до запуска остальных компонентов.
+        const auto config = loadConfig("config.json");
 
-    // Запускаем 3 worker-потока.
-    WorkerPool workerPool(queue, 3);
+        Logger::initialize();
 
-    // Создаём несколько задач для одного файла.
-    for (Job::Id id = 1; id <= 6; ++id) {
+        Logger::info("FileFlow v0.1.0");
+        Logger::info("Starting application...");
 
-        auto job = std::make_shared<Job>(
-            id,
-            "test.txt",
-            JobOperation::CalculateHash
+        Logger::info(
+            "Worker count: " +
+            std::to_string(config.workerCount)
         );
 
-        queue.push(std::move(job));
+        Logger::info(
+            "Storage directory: " +
+            config.storageDirectory
+        );
 
-        std::cout
-            << "Submitted job: "
-            << id
-            << '\n';
+        JobQueue queue;
+
+        // Теперь количество worker'ов задаётся конфигурацией,
+        // а не жёстко зашито в коде.
+        WorkerPool workerPool(
+            queue,
+            config.workerCount
+        );
+
+        for (Job::Id id = 1; id <= 6; ++id) {
+
+            auto job = std::make_shared<Job>(
+                id,
+                "test.txt",
+                JobOperation::CalculateHash
+            );
+
+            if (!queue.push(std::move(job))) {
+                Logger::error(
+                    "Failed to submit job " +
+                    std::to_string(id)
+                );
+
+                return 1;
+            }
+
+            Logger::info(
+                "Submitted job " +
+                std::to_string(id)
+            );
+        }
+
+        Logger::info("Waiting for jobs...");
+
+        queue.waitUntilEmpty();
+
+        Logger::info("All jobs completed.");
+
+        return 0;
     }
+    catch (const std::exception& error) {
 
-    std::cout << "\nWaiting for jobs...\n\n";
+        // Ошибка на этапе запуска приложения.
+        //
+        // Например:
+        // - config.json отсутствует;
+        // - JSON повреждён;
+        // - worker_count == 0.
+        //
+        // Logger здесь может быть ещё не инициализирован,
+        // поэтому используем std::cerr.
+        std::cerr
+            << "Fatal error: "
+            << error.what()
+            << '\n';
 
-    // Ждём фактического завершения всех задач.
-    queue.waitUntilEmpty();
-
-    std::cout << "\nAll jobs completed.\n";
-
-    // При выходе:
-    //
-    // 1. WorkerPool destructor вызывает shutdown().
-    // 2. Worker'ы просыпаются.
-    // 3. Worker'ы выходят из workerLoop().
-    // 4. std::jthread дожидается их завершения.
-    return 0;
+        return 1;
+    }
 }

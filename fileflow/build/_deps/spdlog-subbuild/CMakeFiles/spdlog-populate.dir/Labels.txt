@@ -1,0 +1,14 @@
+# Target labels
+ spdlog-populate
+# Source files and their labels
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/spdlog-populate
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/8f42c6bc804266662aea5a8757fc4df0/spdlog-populate.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/b92c7d917f2d74469978b5a03bdceef3/spdlog-populate-complete.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-build.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-configure.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-download.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-install.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-mkdir.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-patch.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-test.rule
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-update.rule

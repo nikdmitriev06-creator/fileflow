@@ -1,5 +1,6 @@
 #pragma once
 
+#include <chrono>
 #include <cstdint>
 #include <optional>
 #include <string>
@@ -23,12 +24,16 @@ namespace fileflow::domain {
     /**
      * @brief Описывает одну задачу FileFlow.
      *
-     * Job содержит только состояние и данные задачи.
-     * Он не знает о WorkerPool, очереди или обработке файлов.
+     * Job содержит состояние и данные задачи.
+     * Он не знает о WorkerPool, JobQueue или FileProcessor.
      */
     class Job {
     public:
         using Id = std::uint64_t;
+
+        // Используем системное время, потому что timestamps
+        // потенциально будут сохраняться в PostgreSQL.
+        using TimePoint = std::chrono::system_clock::time_point;
 
         Job(
             Id id,
@@ -41,34 +46,39 @@ namespace fileflow::domain {
         [[nodiscard]] JobOperation operation() const noexcept;
         [[nodiscard]] JobStatus status() const noexcept;
 
+        [[nodiscard]]
+        TimePoint createdAt() const noexcept;
+
+        [[nodiscard]]
+        const std::optional<TimePoint>& startedAt() const noexcept;
+
+        [[nodiscard]]
+        const std::optional<TimePoint>& completedAt() const noexcept;
+
+        [[nodiscard]]
+        const std::optional<std::string>& error() const noexcept;
+
+        [[nodiscard]]
+        const std::optional<std::string>& result() const noexcept;
+
         /**
-         * @brief Переводит задачу из Pending в Processing.
-         *
-         * @throws std::logic_error если задача уже была запущена.
+         * @brief Переводит задачу Pending -> Processing.
          */
         void start();
 
         /**
-         * @brief Переводит задачу из Processing в Completed.
+         * @brief Переводит задачу Processing -> Completed.
          *
-         * @throws std::logic_error если задача не находится в Processing.
+         * @param result Результат обработки.
          */
-        void complete();
+        void complete(std::string result);
 
         /**
-         * @brief Переводит задачу из Processing в Failed.
+         * @brief Переводит задачу Processing -> Failed.
          *
          * @param error Описание ошибки.
          */
         void fail(std::string error);
-
-        /**
-         * @brief Возвращает описание ошибки.
-         *
-         * Для успешно выполненной задачи значение отсутствует.
-         */
-        [[nodiscard]]
-        const std::optional<std::string>& error() const noexcept;
 
     private:
         Id id_;
@@ -77,8 +87,18 @@ namespace fileflow::domain {
 
         JobStatus status_;
 
-        // Заполняется только если задача завершилась с ошибкой.
+        // Время создания задачи устанавливается в конструкторе.
+        TimePoint createdAt_;
+
+        // Эти значения появляются только после соответствующих переходов.
+        std::optional<TimePoint> startedAt_;
+        std::optional<TimePoint> completedAt_;
+
         std::optional<std::string> error_;
+
+        // Например:
+        // hash файла, путь к результату resize и т.д.
+        std::optional<std::string> result_;
     };
 
 } // namespace fileflow::domain

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/spdlog-populate"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/8f42c6bc804266662aea5a8757fc4df0/spdlog-populate.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/b92c7d917f2d74469978b5a03bdceef3/spdlog-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-subbuild/CMakeFiles/28804bbd74f7bee5219c15b950e6f3a7/spdlog-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"spdlog-populate"
+		],
+		"name" : "spdlog-populate"
+	}
+}

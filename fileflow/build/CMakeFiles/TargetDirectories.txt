@@ -1,3 +1,10 @@
 C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/fileflow.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/fileflow_tests.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/RUN_TESTS.dir
 C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-build/CMakeFiles/spdlog.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-build/CMakeFiles/RUN_TESTS.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/spdlog-build/CMakeFiles/ALL_BUILD.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-build/CMakeFiles/RUN_TESTS.dir
+C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-build/CMakeFiles/ALL_BUILD.dir

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\018b1b36af8c206f01e59df7cdd1beac\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8799F7A3-3F0B-3F0E-809E-24136F9A7F81}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

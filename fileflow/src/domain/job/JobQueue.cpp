@@ -1,52 +1,51 @@
 #include "JobQueue.h"
 
+#include <stdexcept>
 #include <utility>
 
 namespace fileflow::domain {
 
-    void JobQueue::push(std::shared_ptr<Job> job)
+    bool JobQueue::push(std::shared_ptr<Job> job)
     {
+        if (!job) {
+            throw std::invalid_argument(
+                "Cannot push null job"
+            );
+        }
+
         {
-            // Блокируем очередь на время изменения
-            // её внутреннего состояния.
             std::lock_guard<std::mutex> lock(mutex_);
 
-            // После shutdown новые задачи не принимаем.
+            // После shutdown Queue больше не принимает работу.
             if (shutdown_) {
-                return;
+                return false;
             }
 
             queue_.push(std::move(job));
 
-            // Задача считается незавершённой до тех пор,
-            // пока worker явно не вызовет taskCompleted().
             ++unfinishedJobs_;
         }
 
-        // Будим один worker, ожидающий появления работы.
+        // Будим одного ожидающего worker'а.
         condition_.notify_one();
+
+        return true;
     }
 
     std::shared_ptr<Job> JobQueue::pop()
     {
         std::unique_lock<std::mutex> lock(mutex_);
 
-        // Если очередь пустая, worker засыпает.
-        //
-        // Важно использовать predicate:
-        // condition_variable может проснуться ложно
-        // (spurious wakeup).
         condition_.wait(lock, [this] {
             return !queue_.empty() || shutdown_;
             });
 
-        // Если очередь пуста и shutdown активирован,
-        // значит новых задач больше не будет.
+        // Если shutdown активен и очередь уже пуста,
+        // worker может завершать работу.
         if (queue_.empty()) {
             return nullptr;
         }
 
-        // Перемещаем Job из очереди в worker.
         auto job = std::move(queue_.front());
 
         queue_.pop();
@@ -59,12 +58,20 @@ namespace fileflow::domain {
         {
             std::lock_guard<std::mutex> lock(mutex_);
 
-            // Worker закончил обработку одной задачи.
+            // Это защитная проверка от логической ошибки:
+            // taskCompleted() нельзя вызывать больше раз,
+            // чем push().
+            if (unfinishedJobs_ == 0) {
+                throw std::logic_error(
+                    "taskCompleted() called with no unfinished jobs"
+                );
+            }
+
             --unfinishedJobs_;
         }
 
-        // Будим поток, который мог ждать завершения
-        // всех задач через waitUntilEmpty().
+        // Возможно, другой поток ждёт,
+        // пока все задачи завершатся.
         condition_.notify_all();
     }
 
@@ -72,11 +79,6 @@ namespace fileflow::domain {
     {
         std::unique_lock<std::mutex> lock(mutex_);
 
-        // Ждём именно unfinishedJobs_ == 0.
-        //
-        // Проверять queue_.empty() было бы неправильно:
-        // worker мог уже забрать Job из queue_,
-        // но всё ещё обрабатывать его.
         condition_.wait(lock, [this] {
             return unfinishedJobs_ == 0;
             });
@@ -90,8 +92,7 @@ namespace fileflow::domain {
             shutdown_ = true;
         }
 
-        // Все worker'ы, которые сейчас спят внутри pop(),
-        // должны проснуться и проверить shutdown_.
+        // Просыпаются все worker'ы, ожидающие новые задачи.
         condition_.notify_all();
     }
 
@@ -100,6 +101,13 @@ namespace fileflow::domain {
         std::lock_guard<std::mutex> lock(mutex_);
 
         return queue_.size();
+    }
+
+    std::size_t JobQueue::unfinishedJobs() const
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+
+        return unfinishedJobs_;
     }
 
 } // namespace fileflow::domain

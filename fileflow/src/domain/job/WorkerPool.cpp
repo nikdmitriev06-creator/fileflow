@@ -2,7 +2,7 @@
 
 #include "application/processing/FileProcessor.h"
 
-#include <iostream>
+#include "infrastructure/logging/Logger.h"
 
 namespace {
 
@@ -72,6 +72,10 @@ namespace fileflow::domain {
     {
         application::processing::FileProcessor processor;
 
+        infrastructure::logging::Logger::info(
+            "Worker " + std::to_string(workerId) + " started"
+        );
+
         while (true) {
 
             // Если работы нет, worker блокируется внутри pop().
@@ -93,14 +97,15 @@ namespace fileflow::domain {
             // guard автоматически вызовет taskCompleted().
             JobCompletionGuard completionGuard(queue_);
 
-            std::cout
-                << "Worker "
-                << workerId
-                << " processing job "
-                << job->id()
-                << " ("
-                << job->filename()
-                << ")\n";
+            infrastructure::logging::Logger::info(
+                "Worker " +
+                std::to_string(workerId) +
+                " processing job " +
+                std::to_string(job->id()) +
+                " (" +
+                job->filename() +
+                ")"
+            );
 
             try {
 
@@ -108,19 +113,14 @@ namespace fileflow::domain {
                 // Он просто передаёт Job специализированному компоненту.
                 const auto result = processor.process(*job);
 
-                job->complete();
+                job->complete(result.hash);
 
-                std::cout
-                    << "Worker "
-                    << workerId
-                    << " completed job "
-                    << job->id()
-                    << '\n';
-
-                std::cout
-                    << "  Hash: "
-                    << result.hash
-                    << '\n';
+                infrastructure::logging::Logger::info(
+                    "Worker " +
+                    std::to_string(workerId) +
+                    " completed job " +
+                    std::to_string(job->id())
+                );
 
             }
             catch (const std::exception& error) {
@@ -128,21 +128,22 @@ namespace fileflow::domain {
                 // FileProcessor сообщил об ошибке.
                 job->fail(error.what());
 
-                std::cerr
-                    << "Worker "
-                    << workerId
-                    << " failed job "
-                    << job->id()
-                    << ": "
-                    << error.what()
-                    << '\n';
+                infrastructure::logging::Logger::error(
+                    "Worker " +
+                    std::to_string(workerId) +
+                    " failed job " +
+                    std::to_string(job->id()) +
+                    ": " +
+                    error.what()
+                );
             }
         }
 
-        std::cout
-            << "Worker "
-            << workerId
-            << " stopped\n";
+        infrastructure::logging::Logger::info(
+            "Worker " +
+            std::to_string(workerId) +
+            " stopped"
+        );
     }
 
 } // namespace fileflow::domain

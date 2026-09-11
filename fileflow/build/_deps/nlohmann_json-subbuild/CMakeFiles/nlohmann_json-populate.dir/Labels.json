@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/nlohmann_json-populate"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/018b1b36af8c206f01e59df7cdd1beac/nlohmann_json-populate.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/d0c7c02ecdcfd6948a5c6547bf436bd1/nlohmann_json-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/nlohmann_json-subbuild/CMakeFiles/42ff664756ced127d16f66647b08e08c/nlohmann_json-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"nlohmann_json-populate"
+		],
+		"name" : "nlohmann_json-populate"
+	}
+}

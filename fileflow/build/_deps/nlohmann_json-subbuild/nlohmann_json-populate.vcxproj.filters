@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\42ff664756ced127d16f66647b08e08c\nlohmann_json-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\d0c7c02ecdcfd6948a5c6547bf436bd1\nlohmann_json-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\018b1b36af8c206f01e59df7cdd1beac\nlohmann_json-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-subbuild\CMakeFiles\nlohmann_json-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8799F7A3-3F0B-3F0E-809E-24136F9A7F81}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
