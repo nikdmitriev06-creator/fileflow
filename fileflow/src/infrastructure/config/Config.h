@@ -24,6 +24,8 @@ namespace fileflow::infrastructure::config {
         std::string logLevel{ "info" };
 
         std::string storageDirectory{ "storage" };
+
+        std::uint16_t httpPort{ 8080 };
     };
 
     /**

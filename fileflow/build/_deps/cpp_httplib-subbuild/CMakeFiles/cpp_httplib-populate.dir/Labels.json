@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/cpp_httplib-populate"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/75acbdf2f2025003fab2a26642dd7c3c/cpp_httplib-populate.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/615c369b866e642e402df811a9e03648/cpp_httplib-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-subbuild/CMakeFiles/8a2d29c44610a80f9d840aab91744c60/cpp_httplib-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cpp_httplib-populate"
+		],
+		"name" : "cpp_httplib-populate"
+	}
+}

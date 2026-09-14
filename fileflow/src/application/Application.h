@@ -5,6 +5,7 @@
 
 #include "infrastructure/config/Config.h"
 #include "infrastructure/storage/Storage.h"
+#include "infrastructure/http/HttpServer.h"
 
 namespace fileflow::application {
 
@@ -25,6 +26,8 @@ namespace fileflow::application {
         infrastructure::config::Config config_;
 
         infrastructure::storage::Storage storage_;
+
+        infrastructure::http::HttpServer httpServer_;
 
         // Queue должна существовать дольше WorkerPool,
         // потому что WorkerPool хранит ссылку на неё.

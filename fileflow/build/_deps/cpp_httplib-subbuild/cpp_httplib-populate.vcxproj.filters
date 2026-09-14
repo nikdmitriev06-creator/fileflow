@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\8a2d29c44610a80f9d840aab91744c60\cpp_httplib-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\615c369b866e642e402df811a9e03648\cpp_httplib-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\75acbdf2f2025003fab2a26642dd7c3c\cpp_httplib-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-subbuild\CMakeFiles\cpp_httplib-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6DAA54C4-6D9D-363D-B642-9EDED0F7EDF0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

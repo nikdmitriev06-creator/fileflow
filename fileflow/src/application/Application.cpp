@@ -14,6 +14,7 @@ namespace fileflow::application {
     )
         : config_(std::move(config)),
         storage_(config_.storageDirectory),
+        httpServer_(config_.httpPort),
         workerPool_(queue_, config_.workerCount)
     {
     }

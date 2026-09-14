@@ -45,6 +45,9 @@ namespace fileflow::infrastructure::config {
                 std::string{ "storage" }
             );
 
+        config.httpPort =
+            json.value("http_port", std::uint16_t{ 8080 });
+
         // Нулевое количество worker'ов не имеет смысла:
         // задачи никогда не будут обработаны.
         if (config.workerCount == 0) {

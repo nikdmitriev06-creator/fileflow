@@ -1,5 +1,6 @@
 {
     "worker_count": 3,
     "log_level": "info",
-    "storage_directory": "storage"
+    "storage_directory": "storage",
+    "http_port": 8080
 }

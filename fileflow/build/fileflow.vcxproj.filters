@@ -28,6 +28,9 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\storage\Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\http\HttpServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\CMakeLists.txt" />

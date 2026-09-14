@@ -3,12 +3,14 @@
 #include "application/Application.h"
 
 #include "infrastructure/config/Config.h"
+#include "infrastructure/http/HttpServer.h"
 #include "infrastructure/logging/Logger.h"
 
 int main()
 {
     using fileflow::application::Application;
     using fileflow::infrastructure::config::loadConfig;
+    using fileflow::infrastructure::http::HttpServer;
     using fileflow::infrastructure::logging::Logger;
 
     try {
@@ -18,14 +20,13 @@ int main()
 
         Application application(config);
 
-        application.run();
+        HttpServer server(config.httpPort);
+
+        server.run();
 
         return 0;
     }
     catch (const std::exception& error) {
-
-        // Logger может быть ещё не инициализирован,
-        // поэтому на уровне запуска приложения используем std::cerr.
         std::cerr
             << "Fatal error: "
             << error.what()
