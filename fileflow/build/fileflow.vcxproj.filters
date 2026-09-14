@@ -4,6 +4,12 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\Job.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -13,13 +19,13 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\WorkerPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\logging\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\config\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\storage\Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

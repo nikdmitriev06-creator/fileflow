@@ -35,14 +35,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_executable(fileflow
     src/main.cpp
 
+    src/application/Application.cpp
+    src/application/processing/FileProcessor.cpp
+
     src/domain/job/Job.cpp
     src/domain/job/JobQueue.cpp
     src/domain/job/WorkerPool.cpp
 
-    src/application/processing/FileProcessor.cpp
-
     src/infrastructure/logging/Logger.cpp
     src/infrastructure/config/Config.cpp
+    src/infrastructure/storage/Storage.cpp
 )
 
 configure_file(
