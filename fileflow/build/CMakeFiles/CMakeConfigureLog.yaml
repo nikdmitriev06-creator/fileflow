@@ -51,7 +51,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -62,6 +61,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -83,9 +83,9 @@ events:
       The output was:
       0
       ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 04.09.2026 9:59:45.
+      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:38:37.
       
-      ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+      ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
       PrepareForBuild:
         ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "Debug\\".
         ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
@@ -98,7 +98,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -106,13 +106,13 @@ events:
       FinalizeBuildStatus:
         ╨д╨░╨╣╨╗ "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
         ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+      ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
       
       ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
           ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
           ╨Ю╤И╨╕╨▒╨╛╨║: 0
       
-      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.51
+      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.35
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -120,7 +120,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/4.3.1/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/4.3.1/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "find-v1"
@@ -157,7 +157,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -168,6 +167,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -194,7 +194,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -205,6 +204,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -245,7 +245,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -256,6 +255,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -301,9 +301,6 @@ events:
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.com"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.exe"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
       - "C:/MinGW/bin/lld-link.com"
       - "C:/MinGW/bin/lld-link.exe"
       - "C:/MinGW/bin/lld-link"
@@ -334,6 +331,9 @@ events:
       - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link.com"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link.exe"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -368,7 +368,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -379,6 +378,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -417,7 +417,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -428,6 +427,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -454,7 +454,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -465,6 +464,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -503,7 +503,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -514,6 +513,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -559,9 +559,6 @@ events:
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt.com"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt.exe"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/mt"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
       - "C:/MinGW/bin/mt.com"
       - "C:/MinGW/bin/mt.exe"
       - "C:/MinGW/bin/mt"
@@ -592,6 +589,9 @@ events:
       - "C:/Program Files/Cloudflare/Cloudflare WARP/mt.com"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/mt.exe"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/mt"
@@ -626,7 +626,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -637,6 +636,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -675,7 +675,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -686,6 +685,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -712,7 +712,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -723,6 +722,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -763,7 +763,6 @@ events:
       - "C:/Windows/System32/WindowsPowerShell/v1.0/"
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/MinGW/bin/"
       - "C:/Program Files/dotnet/"
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
@@ -774,6 +773,7 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/genos/.dotnet/tools/"
@@ -828,9 +828,6 @@ events:
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc.com"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc.exe"
       - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/rc"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
-      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
       - "C:/MinGW/bin/rc.com"
       - "C:/MinGW/bin/rc.exe"
       - "C:/MinGW/bin/rc"
@@ -861,6 +858,9 @@ events:
       - "C:/Program Files/Cloudflare/Cloudflare WARP/rc.com"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/rc.exe"
       - "C:/Program Files/Cloudflare/Cloudflare WARP/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/rc"
@@ -931,7 +931,6 @@ events:
         - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
         - "C:\\WINDOWS\\System32\\OpenSSH"
         - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
-        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\MinGW\\bin"
         - "C:\\Program Files\\dotnet"
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
@@ -942,6 +941,7 @@ events:
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
         - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\genos\\.dotnet\\tools"
@@ -962,8 +962,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/CMakeScratch/TryCompile-65ff5t"
-      binary: "C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/CMakeScratch/TryCompile-65ff5t"
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-egd5iz"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-egd5iz"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -974,39 +974,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/CMakeScratch/TryCompile-65ff5t'
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-egd5iz'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ea4e9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_8de4c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 04.09.2026 9:59:46.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:38:40.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-65ff5t\\cmTC_ea4e9.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-egd5iz\\cmTC_8de4c.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-65ff5t\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-egd5iz\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_8de4c.dir\\Debug\\cmTC_8de4c.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_8de4c.dir\\Debug\\cmTC_8de4c.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_8de4c.dir\\Debug\\cmTC_8de4c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_ea4e9.dir\\Debug\\\\" /Fd"cmTC_ea4e9.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_8de4c.dir\\Debug\\\\" /Fd"cmTC_8de4c.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_ea4e9.dir\\Debug\\\\" /Fd"cmTC_ea4e9.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_8de4c.dir\\Debug\\\\" /Fd"cmTC_8de4c.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-65ff5t\\Debug\\cmTC_ea4e9.exe" /INCREMENTAL /ILK:"cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/CMakeScratch/TryCompile-65ff5t/Debug/cmTC_ea4e9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/FileFlow/build/CMakeFiles/CMakeScratch/TryCompile-65ff5t/Debug/cmTC_ea4e9.lib" /MACHINE:X64  /machine:x64 cmTC_ea4e9.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_ea4e9.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-65ff5t\\Debug\\cmTC_ea4e9.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-egd5iz\\Debug\\cmTC_8de4c.exe" /INCREMENTAL /ILK:"cmTC_8de4c.dir\\Debug\\cmTC_8de4c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-egd5iz/Debug/cmTC_8de4c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-egd5iz/Debug/cmTC_8de4c.lib" /MACHINE:X64  /machine:x64 cmTC_8de4c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_8de4c.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-egd5iz\\Debug\\cmTC_8de4c.exe
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ea4e9.dir\\Debug\\cmTC_ea4e9.tlog\\cmTC_ea4e9.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\FileFlow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-65ff5t\\cmTC_ea4e9.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_8de4c.dir\\Debug\\cmTC_8de4c.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_8de4c.dir\\Debug\\cmTC_8de4c.tlog\\cmTC_8de4c.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-egd5iz\\cmTC_8de4c.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.43
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.33
         
       exitCode: 0
   -
@@ -1037,10 +1037,6 @@ events:
       Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
       Microsoft (R) Incremental Linker Version 14.44.35217.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
-...
-
----
-events:
   -
     kind: "find-v1"
     backtrace:
@@ -1287,8 +1283,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-nqophj"
-      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-nqophj"
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-8k6cdg"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-8k6cdg"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1298,39 +1294,39 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-nqophj'
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-8k6cdg'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a50fa.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_208b6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 09.09.2026 9:50:57.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:15.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\cmTC_a50fa.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\cmTC_208b6.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_a50fa.dir\\Debug\\cmTC_a50fa.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_208b6.dir\\Debug\\cmTC_208b6.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_a50fa.dir\\Debug\\cmTC_a50fa.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_a50fa.dir\\Debug\\cmTC_a50fa.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_208b6.dir\\Debug\\cmTC_208b6.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_208b6.dir\\Debug\\cmTC_208b6.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_a50fa.dir\\Debug\\\\" /Fd"cmTC_a50fa.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\src.cxx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_208b6.dir\\Debug\\\\" /Fd"cmTC_208b6.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\src.cxx"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_a50fa.dir\\Debug\\\\" /Fd"cmTC_a50fa.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\src.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_208b6.dir\\Debug\\\\" /Fd"cmTC_208b6.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\src.cxx"
           src.cxx
-        C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\src.cxx(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\cmTC_a50fa.vcxproj]
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\cmTC_a50fa.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
+        C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\src.cxx(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\cmTC_208b6.vcxproj]
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\cmTC_208b6.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
         
         ╨Ю╤И╨╕╨▒╨║╨░ ╤Б╨▒╨╛╤А╨║╨╕.
         
-        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\cmTC_a50fa.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
+        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\cmTC_208b6.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
         (╨ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ClCompile) -> 
-          C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\src.cxx(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nqophj\\cmTC_a50fa.vcxproj]
+          C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\src.cxx(1,10): error C1083: ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ ╨▓╨║╨╗╤О╤З╨╡╨╜╨╕╨╡: pthread.h: No such file or directory, [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8k6cdg\\cmTC_208b6.vcxproj]
         
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 1
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.35
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.46
         
       exitCode: 1
   -
@@ -1343,8 +1339,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ljmkm3"
-      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ljmkm3"
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ekrapa"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ekrapa"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1354,41 +1350,41 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ljmkm3'
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ekrapa'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_102b2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bba91.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 09.09.2026 9:50:58.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:17.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\cmTC_102b2.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\cmTC_bba91.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_102b2.dir\\Debug\\cmTC_102b2.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_bba91.dir\\Debug\\cmTC_bba91.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_102b2.dir\\Debug\\cmTC_102b2.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_102b2.dir\\Debug\\cmTC_102b2.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_bba91.dir\\Debug\\cmTC_bba91.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_bba91.dir\\Debug\\cmTC_bba91.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_102b2.dir\\Debug\\\\" /Fd"cmTC_102b2.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\CheckFunctionExists.cxx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_bba91.dir\\Debug\\\\" /Fd"cmTC_bba91.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\CheckFunctionExists.cxx"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_102b2.dir\\Debug\\\\" /Fd"cmTC_102b2.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\CheckFunctionExists.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_bba91.dir\\Debug\\\\" /Fd"cmTC_bba91.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\CheckFunctionExists.cxx"
           CheckFunctionExists.cxx
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\Debug\\cmTC_102b2.exe" /INCREMENTAL /ILK:"cmTC_102b2.dir\\Debug\\cmTC_102b2.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ljmkm3/Debug/cmTC_102b2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ljmkm3/Debug/cmTC_102b2.lib" /MACHINE:X64  /machine:x64 cmTC_102b2.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\cmTC_102b2.vcxproj]
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\cmTC_102b2.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\Debug\\cmTC_bba91.exe" /INCREMENTAL /ILK:"cmTC_bba91.dir\\Debug\\cmTC_bba91.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ekrapa/Debug/cmTC_bba91.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-ekrapa/Debug/cmTC_bba91.lib" /MACHINE:X64  /machine:x64 cmTC_bba91.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\cmTC_bba91.vcxproj]
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\cmTC_bba91.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
         
         ╨Ю╤И╨╕╨▒╨║╨░ ╤Б╨▒╨╛╤А╨║╨╕.
         
-        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\cmTC_102b2.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
+        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\cmTC_bba91.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
         (╨ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В Link) -> 
-          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ljmkm3\\cmTC_102b2.vcxproj]
+          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthreads.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ekrapa\\cmTC_bba91.vcxproj]
         
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 1
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.44
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.35
         
       exitCode: 1
   -
@@ -1401,8 +1397,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-11wuax"
-      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-11wuax"
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-w86uvr"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-w86uvr"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1412,41 +1408,41 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-11wuax'
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-w86uvr'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b0f4a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f7b1f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 09.09.2026 9:50:59.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:19.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\cmTC_b0f4a.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\cmTC_f7b1f.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_b0f4a.dir\\Debug\\cmTC_b0f4a.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f7b1f.dir\\Debug\\cmTC_f7b1f.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_b0f4a.dir\\Debug\\cmTC_b0f4a.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_b0f4a.dir\\Debug\\cmTC_b0f4a.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_f7b1f.dir\\Debug\\cmTC_f7b1f.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f7b1f.dir\\Debug\\cmTC_f7b1f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_b0f4a.dir\\Debug\\\\" /Fd"cmTC_b0f4a.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\CheckFunctionExists.cxx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_f7b1f.dir\\Debug\\\\" /Fd"cmTC_f7b1f.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\CheckFunctionExists.cxx"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_b0f4a.dir\\Debug\\\\" /Fd"cmTC_b0f4a.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\CheckFunctionExists.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_f7b1f.dir\\Debug\\\\" /Fd"cmTC_f7b1f.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\CheckFunctionExists.cxx"
           CheckFunctionExists.cxx
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\Debug\\cmTC_b0f4a.exe" /INCREMENTAL /ILK:"cmTC_b0f4a.dir\\Debug\\cmTC_b0f4a.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-11wuax/Debug/cmTC_b0f4a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-11wuax/Debug/cmTC_b0f4a.lib" /MACHINE:X64  /machine:x64 cmTC_b0f4a.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\cmTC_b0f4a.vcxproj]
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\cmTC_b0f4a.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\Debug\\cmTC_f7b1f.exe" /INCREMENTAL /ILK:"cmTC_f7b1f.dir\\Debug\\cmTC_f7b1f.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-w86uvr/Debug/cmTC_f7b1f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-w86uvr/Debug/cmTC_f7b1f.lib" /MACHINE:X64  /machine:x64 cmTC_f7b1f.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\cmTC_f7b1f.vcxproj]
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\cmTC_f7b1f.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) ╤Б ╨╛╤И╨╕╨▒╨║╨╛╨╣.
         
         ╨Ю╤И╨╕╨▒╨║╨░ ╤Б╨▒╨╛╤А╨║╨╕.
         
-        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\cmTC_b0f4a.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
+        "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\cmTC_f7b1f.vcxproj" (╤Ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О) (1) ->
         (╨ж╨╡╨╗╨╡╨▓╨╛╨╣ ╨╛╨▒╤К╨╡╨║╤В Link) -> 
-          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-11wuax\\cmTC_b0f4a.vcxproj]
+          LINK : fatal error LNK1104: ╨╜╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╛╤В╨║╤А╤Л╤В╤М ╤Д╨░╨╣╨╗ "pthread.lib" [C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w86uvr\\cmTC_f7b1f.vcxproj]
         
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 1
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.41
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.52
         
       exitCode: 1
   -
@@ -1458,8 +1454,8 @@ events:
     checks:
       - "Looking for _fwrite_nolock"
     directories:
-      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-jgwdyq"
-      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-jgwdyq"
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-07vd9g"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-07vd9g"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1469,39 +1465,470 @@ events:
       variable: "HAVE_FWRITE_UNLOCKED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-jgwdyq'
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-07vd9g'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c15d3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f9eda.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 09.09.2026 9:50:59.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:21.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\cmTC_c15d3.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\cmTC_f9eda.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
           ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_c15d3.dir\\Debug\\cmTC_c15d3.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f9eda.dir\\Debug\\cmTC_f9eda.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_c15d3.dir\\Debug\\cmTC_c15d3.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_c15d3.dir\\Debug\\cmTC_c15d3.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_f9eda.dir\\Debug\\cmTC_f9eda.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f9eda.dir\\Debug\\cmTC_f9eda.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_c15d3.dir\\Debug\\\\" /Fd"cmTC_c15d3.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\CheckSymbolExists.cxx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_f9eda.dir\\Debug\\\\" /Fd"cmTC_f9eda.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\CheckSymbolExists.cxx"
           ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
           (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_c15d3.dir\\Debug\\\\" /Fd"cmTC_c15d3.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\CheckSymbolExists.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_f9eda.dir\\Debug\\\\" /Fd"cmTC_f9eda.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\CheckSymbolExists.cxx"
           CheckSymbolExists.cxx
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\Debug\\cmTC_c15d3.exe" /INCREMENTAL /ILK:"cmTC_c15d3.dir\\Debug\\cmTC_c15d3.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-jgwdyq/Debug/cmTC_c15d3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-jgwdyq/Debug/cmTC_c15d3.lib" /MACHINE:X64  /machine:x64 cmTC_c15d3.dir\\Debug\\CheckSymbolExists.obj
-          cmTC_c15d3.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\Debug\\cmTC_c15d3.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\Debug\\cmTC_f9eda.exe" /INCREMENTAL /ILK:"cmTC_f9eda.dir\\Debug\\cmTC_f9eda.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-07vd9g/Debug/cmTC_f9eda.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-07vd9g/Debug/cmTC_f9eda.lib" /MACHINE:X64  /machine:x64 cmTC_f9eda.dir\\Debug\\CheckSymbolExists.obj
+          cmTC_f9eda.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\Debug\\cmTC_f9eda.exe
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_c15d3.dir\\Debug\\cmTC_c15d3.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_c15d3.dir\\Debug\\cmTC_c15d3.tlog\\cmTC_c15d3.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jgwdyq\\cmTC_c15d3.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_f9eda.dir\\Debug\\cmTC_f9eda.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f9eda.dir\\Debug\\cmTC_f9eda.tlog\\cmTC_f9eda.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-07vd9g\\cmTC_f9eda.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.50
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.44
         
       exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\genos\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\local\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Users\\genos\\bin"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\WINDOWS\\System32\\OpenSSH"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\MinGW\\bin"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\genos\\.dotnet\\tools"
+        - "C:\\Program Files\\Git\\usr\\bin\\vendor_perl"
+        - "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/FileFlow"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/FileFlow"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
+      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:46.
+      
+      ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+      PrepareForBuild:
+        ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "Debug\\".
+        ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
+        ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "Debug\\CompilerIdC.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+        ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        ╨д╨░╨╣╨╗ "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+        ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+      
+      ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
+          ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
+          ╨Ю╤И╨╕╨▒╨╛╨║: 0
+      
+      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.51
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/4.3.1/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/Users/genos/bin/"
+      - "C:/Program Files/Git/mingw64/bin/"
+      - "C:/Program Files/Git/usr/local/bin/"
+      - "C:/Program Files/Git/usr/bin/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/"
+      - "C:/MinGW/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/130/Tools/Binn/"
+      - "C:/Program Files (x86)/Microsoft SQL Server/140/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/140/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/140/DTS/Binn/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/genos/.dotnet/tools/"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/"
+      - "C:/Program Files/Git/usr/bin/core_perl/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/FileFlow/bin/"
+      - "C:/Program Files (x86)/FileFlow/sbin/"
+      - "C:/Program Files (x86)/FileFlow/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "C:/Users/genos/bin/lld-link.com"
+      - "C:/Users/genos/bin/lld-link.exe"
+      - "C:/Users/genos/bin/lld-link"
+      - "C:/Program Files/Git/mingw64/bin/lld-link.com"
+      - "C:/Program Files/Git/mingw64/bin/lld-link.exe"
+      - "C:/Program Files/Git/mingw64/bin/lld-link"
+      - "C:/Program Files/Git/usr/local/bin/lld-link.com"
+      - "C:/Program Files/Git/usr/local/bin/lld-link.exe"
+      - "C:/Program Files/Git/usr/local/bin/lld-link"
+      - "C:/Program Files/Git/usr/bin/lld-link.com"
+      - "C:/Program Files/Git/usr/bin/lld-link.exe"
+      - "C:/Program Files/Git/usr/bin/lld-link"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/lld-link.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/lld-link.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/java8path/lld-link"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link.com"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link.exe"
+      - "C:/Program Files (x86)/Common Files/Oracle/Java/javapath/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR/lld-link"
+      - "C:/MinGW/bin/lld-link.com"
+      - "C:/MinGW/bin/lld-link.exe"
+      - "C:/MinGW/bin/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/130/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/130/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/130/Tools/Binn/lld-link"
+      - "C:/Program Files (x86)/Microsoft SQL Server/140/Tools/Binn/lld-link.com"
+      - "C:/Program Files (x86)/Microsoft SQL Server/140/Tools/Binn/lld-link.exe"
+      - "C:/Program Files (x86)/Microsoft SQL Server/140/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/140/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/140/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/140/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/140/DTS/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/140/DTS/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/140/DTS/Binn/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/genos/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Users/genos/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/genos/.dotnet/tools/lld-link.com"
+      - "C:/Users/genos/.dotnet/tools/lld-link.exe"
+      - "C:/Users/genos/.dotnet/tools/lld-link"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/lld-link.com"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/lld-link.exe"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/lld-link"
+      - "C:/Program Files/Git/usr/bin/core_perl/lld-link.com"
+      - "C:/Program Files/Git/usr/bin/core_perl/lld-link.exe"
+      - "C:/Program Files/Git/usr/bin/core_perl/lld-link"
+      - "C:/Program Files/bin/lld-link.com"
+      - "C:/Program Files/bin/lld-link.exe"
+      - "C:/Program Files/bin/lld-link"
+      - "C:/Program Files/sbin/lld-link.com"
+      - "C:/Program Files/sbin/lld-link.exe"
+      - "C:/Program Files/sbin/lld-link"
+      - "C:/Program Files/lld-link.com"
+      - "C:/Program Files/lld-link.exe"
+      - "C:/Program Files/lld-link"
+      - "C:/Program Files (x86)/bin/lld-link.com"
+      - "C:/Program Files (x86)/bin/lld-link.exe"
+      - "C:/Program Files (x86)/bin/lld-link"
+      - "C:/Program Files (x86)/sbin/lld-link.com"
+      - "C:/Program Files (x86)/sbin/lld-link.exe"
+      - "C:/Program Files (x86)/sbin/lld-link"
+      - "C:/Program Files (x86)/lld-link.com"
+      - "C:/Program Files (x86)/lld-link.exe"
+      - "C:/Program Files (x86)/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Program Files/CMake/sbin/lld-link.com"
+      - "C:/Program Files/CMake/sbin/lld-link.exe"
+      - "C:/Program Files/CMake/sbin/lld-link"
+      - "C:/Program Files/CMake/lld-link.com"
+      - "C:/Program Files/CMake/lld-link.exe"
+      - "C:/Program Files/CMake/lld-link"
+      - "C:/Program Files (x86)/FileFlow/bin/lld-link.com"
+      - "C:/Program Files (x86)/FileFlow/bin/lld-link.exe"
+      - "C:/Program Files (x86)/FileFlow/bin/lld-link"
+      - "C:/Program Files (x86)/FileFlow/sbin/lld-link.com"
+      - "C:/Program Files (x86)/FileFlow/sbin/lld-link.exe"
+      - "C:/Program Files (x86)/FileFlow/sbin/lld-link"
+      - "C:/Program Files (x86)/FileFlow/lld-link.com"
+      - "C:/Program Files (x86)/FileFlow/lld-link.exe"
+      - "C:/Program Files (x86)/FileFlow/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\genos\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\local\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Users\\genos\\bin"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path"
+        - "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\WINDOWS\\System32\\OpenSSH"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA app\\NvDLISR"
+        - "C:\\MinGW\\bin"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn"
+        - "C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Users\\genos\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\genos\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\genos\\.dotnet\\tools"
+        - "C:\\Program Files\\Git\\usr\\bin\\vendor_perl"
+        - "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/FileFlow"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/FileFlow"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-e6hko2"
+      binary: "C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-e6hko2"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-e6hko2'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f7839.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.14.23+b0019275e ╨┤╨╗╤П .NET Framework
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 14.09.2026 11:39:48.
+        
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6hko2\\cmTC_f7839.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        PrepareForBuild:
+          ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6hko2\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f7839.dir\\Debug\\cmTC_f7839.tlog\\".
+        InitializeBuildStatus:
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_f7839.dir\\Debug\\cmTC_f7839.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f7839.dir\\Debug\\cmTC_f7839.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f7839.dir\\Debug\\\\" /Fd"cmTC_f7839.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.44.35217 ╨┤╨╗╤П x64
+          (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f7839.dir\\Debug\\\\" /Fd"cmTC_f7839.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6hko2\\Debug\\cmTC_f7839.exe" /INCREMENTAL /ILK:"cmTC_f7839.dir\\Debug\\cmTC_f7839.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-e6hko2/Debug/cmTC_f7839.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/genos/source/repos/FileFlow/fileflow/build/CMakeFiles/CMakeScratch/TryCompile-e6hko2/Debug/cmTC_f7839.lib" /MACHINE:X64  /machine:x64 cmTC_f7839.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_f7839.vcxproj -> C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6hko2\\Debug\\cmTC_f7839.exe
+        FinalizeBuildStatus:
+          ╨д╨░╨╣╨╗ "cmTC_f7839.dir\\Debug\\cmTC_f7839.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f7839.dir\\Debug\\cmTC_f7839.tlog\\cmTC_f7839.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6hko2\\cmTC_f7839.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        
+        ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
+            ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
+            ╨Ю╤И╨╕╨▒╨╛╨║: 0
+        
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.88
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build/_deps/googletest-src/CMakeLists.txt:6 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35217.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
 ...

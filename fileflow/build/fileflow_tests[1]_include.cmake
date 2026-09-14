@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/genos/source/repos/FileFlow/fileflow/build/fileflow_tests[1]_tests.cmake")
+  include("C:/Users/genos/source/repos/FileFlow/fileflow/build/fileflow_tests[1]_tests.cmake")
+else()
+  add_test(fileflow_tests_NOT_BUILT fileflow_tests_NOT_BUILT)
+endif()

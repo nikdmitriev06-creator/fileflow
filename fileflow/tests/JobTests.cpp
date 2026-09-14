@@ -1,38 +1,42 @@
 #include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
 
-#include <cassert>
-#include <iostream>
+#include <gtest/gtest.h>
+
 #include <memory>
-#include <stdexcept>
 
 using fileflow::domain::Job;
 using fileflow::domain::JobOperation;
 using fileflow::domain::JobQueue;
 using fileflow::domain::JobStatus;
 
-void testJobInitialState()
+TEST(JobTest, InitialState)
 {
-    Job job(
+    const Job job(
         1,
         "test.txt",
         JobOperation::CalculateHash
     );
 
-    assert(job.id() == 1);
-    assert(job.filename() == "test.txt");
-    assert(job.operation() == JobOperation::CalculateHash);
+    EXPECT_EQ(job.id(), 1);
+    EXPECT_EQ(job.filename(), "test.txt");
+    EXPECT_EQ(
+        job.operation(),
+        JobOperation::CalculateHash
+    );
 
-    // Новая задача всегда начинается с Pending.
-    assert(job.status() == JobStatus::Pending);
+    EXPECT_EQ(
+        job.status(),
+        JobStatus::Pending
+    );
 
-    assert(!job.startedAt().has_value());
-    assert(!job.completedAt().has_value());
-    assert(!job.error().has_value());
-    assert(!job.result().has_value());
+    EXPECT_FALSE(job.startedAt().has_value());
+    EXPECT_FALSE(job.completedAt().has_value());
+    EXPECT_FALSE(job.error().has_value());
+    EXPECT_FALSE(job.result().has_value());
 }
 
-void testJobSuccessfulFlow()
+TEST(JobTest, SuccessfulFlow)
 {
     Job job(
         1,
@@ -42,18 +46,30 @@ void testJobSuccessfulFlow()
 
     job.start();
 
-    assert(job.status() == JobStatus::Processing);
-    assert(job.startedAt().has_value());
+    EXPECT_EQ(
+        job.status(),
+        JobStatus::Processing
+    );
+
+    EXPECT_TRUE(job.startedAt().has_value());
 
     job.complete("abcdef123456");
 
-    assert(job.status() == JobStatus::Completed);
-    assert(job.completedAt().has_value());
-    assert(job.result().has_value());
-    assert(*job.result() == "abcdef123456");
+    EXPECT_EQ(
+        job.status(),
+        JobStatus::Completed
+    );
+
+    EXPECT_TRUE(job.completedAt().has_value());
+    EXPECT_TRUE(job.result().has_value());
+
+    EXPECT_EQ(
+        *job.result(),
+        "abcdef123456"
+    );
 }
 
-void testJobFailedFlow()
+TEST(JobTest, FailedFlow)
 {
     Job job(
         1,
@@ -65,13 +81,21 @@ void testJobFailedFlow()
 
     job.fail("Failed to open file");
 
-    assert(job.status() == JobStatus::Failed);
-    assert(job.completedAt().has_value());
-    assert(job.error().has_value());
-    assert(*job.error() == "Failed to open file");
+    EXPECT_EQ(
+        job.status(),
+        JobStatus::Failed
+    );
+
+    EXPECT_TRUE(job.completedAt().has_value());
+    EXPECT_TRUE(job.error().has_value());
+
+    EXPECT_EQ(
+        *job.error(),
+        "Failed to open file"
+    );
 }
 
-void testInvalidJobTransition()
+TEST(JobTest, CannotCompletePendingJob)
 {
     Job job(
         1,
@@ -79,21 +103,13 @@ void testInvalidJobTransition()
         JobOperation::CalculateHash
     );
 
-    bool exceptionThrown = false;
-
-    try {
-        // Нельзя завершить задачу,
-        // которая ещё не начала выполняться.
-        job.complete("result");
-    }
-    catch (const std::logic_error&) {
-        exceptionThrown = true;
-    }
-
-    assert(exceptionThrown);
+    EXPECT_THROW(
+        job.complete("result"),
+        std::logic_error
+    );
 }
 
-void testQueuePushAndPop()
+TEST(JobQueueTest, PushAndPop)
 {
     JobQueue queue;
 
@@ -103,29 +119,27 @@ void testQueuePushAndPop()
         JobOperation::CalculateHash
     );
 
-    assert(queue.push(job));
+    EXPECT_TRUE(queue.push(job));
 
-    assert(queue.size() == 1);
-    assert(queue.unfinishedJobs() == 1);
+    EXPECT_EQ(queue.size(), 1);
+    EXPECT_EQ(queue.unfinishedJobs(), 1);
 
     auto receivedJob = queue.pop();
 
-    assert(receivedJob != nullptr);
-    assert(receivedJob->id() == 1);
+    ASSERT_NE(receivedJob, nullptr);
 
-    // Job уже находится у worker,
-    // поэтому queue.size() == 0.
-    assert(queue.size() == 0);
+    EXPECT_EQ(receivedJob->id(), 1);
+    EXPECT_EQ(queue.size(), 0);
 
-    // Но задача всё ещё не завершена.
-    assert(queue.unfinishedJobs() == 1);
+    // Job уже забран worker'ом, но ещё не завершён.
+    EXPECT_EQ(queue.unfinishedJobs(), 1);
 
     queue.taskCompleted();
 
-    assert(queue.unfinishedJobs() == 0);
+    EXPECT_EQ(queue.unfinishedJobs(), 0);
 }
 
-void testQueueRejectsJobsAfterShutdown()
+TEST(JobQueueTest, RejectsJobsAfterShutdown)
 {
     JobQueue queue;
 
@@ -137,41 +151,18 @@ void testQueueRejectsJobsAfterShutdown()
         JobOperation::CalculateHash
     );
 
-    // После shutdown новые задачи не принимаются.
-    assert(!queue.push(job));
+    EXPECT_FALSE(queue.push(job));
 
-    assert(queue.size() == 0);
-    assert(queue.unfinishedJobs() == 0);
+    EXPECT_EQ(queue.size(), 0);
+    EXPECT_EQ(queue.unfinishedJobs(), 0);
 }
 
-void testQueueRejectsNullJob()
+TEST(JobQueueTest, RejectsNullJob)
 {
     JobQueue queue;
 
-    bool exceptionThrown = false;
-
-    try {
-        queue.push(nullptr);
-    }
-    catch (const std::invalid_argument&) {
-        exceptionThrown = true;
-    }
-
-    assert(exceptionThrown);
-}
-
-int main()
-{
-    testJobInitialState();
-    testJobSuccessfulFlow();
-    testJobFailedFlow();
-    testInvalidJobTransition();
-
-    testQueuePushAndPop();
-    testQueueRejectsJobsAfterShutdown();
-    testQueueRejectsNullJob();
-
-    std::cout << "All tests passed.\n";
-
-    return 0;
+    EXPECT_THROW(
+        queue.push(nullptr),
+        std::invalid_argument
+    );
 }

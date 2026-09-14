@@ -1,0 +1,17 @@
+JobTest.InitialState 1 0.0103128
+JobTest.SuccessfulFlow 1 0.0111874
+JobTest.FailedFlow 1 0.011032
+JobTest.CannotCompletePendingJob 1 0.0166371
+JobQueueTest.PushAndPop 1 0.0107396
+JobQueueTest.RejectsJobsAfterShutdown 1 0.0099989
+JobQueueTest.RejectsNullJob 1 0.0111698
+StorageTest.CreatesRootDirectory 1 0.0133863
+StorageTest.SavesAndLoadsData 1 0.0147566
+StorageTest.RemovesFile 1 0.0138833
+StorageTest.RejectsParentPath 1 0.0129952
+StorageTest.RejectsAbsolutePath 1 0.0127759
+FileProcessorTest.CalculatesHash 1 0.0200682
+FileProcessorTest.DifferentContentsProduceDifferentHashes 1 0.0145005
+FileProcessorTest.ThrowsForMissingFile 1 0.0124775
+FileProcessorTest.ThrowsForUnsupportedOperation 1 0.0123069
+---

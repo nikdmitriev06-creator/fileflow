@@ -1,133 +1,136 @@
 #include "infrastructure/storage/Storage.h"
 
-#include <cassert>
+#include <gtest/gtest.h>
+
 #include <cstddef>
 #include <filesystem>
-#include <string>
 #include <vector>
 
 using fileflow::infrastructure::storage::Storage;
 
 namespace {
 
-    std::filesystem::path createTestDirectory()
-    {
-        const auto directory =
-            std::filesystem::temp_directory_path() /
-            "fileflow_storage_tests";
-
-        std::filesystem::remove_all(directory);
-
-        return directory;
-    }
-
-    void testStorageCreatesDirectory()
-    {
-        const auto directory = createTestDirectory();
-
+    class StorageTest : public ::testing::Test {
+    protected:
+        void SetUp() override
         {
-            Storage storage(directory);
+            testDirectory =
+                std::filesystem::temp_directory_path() /
+                "fileflow_storage_tests";
 
-            assert(std::filesystem::exists(directory));
-            assert(std::filesystem::is_directory(directory));
+            std::filesystem::remove_all(testDirectory);
         }
 
-        std::filesystem::remove_all(directory);
-    }
-
-    void testSaveAndLoad()
-    {
-        const auto directory = createTestDirectory();
-
+        void TearDown() override
         {
-            Storage storage(directory);
-
-            const std::vector<std::byte> data{
-                std::byte{'H'},
-                std::byte{'e'},
-                std::byte{'l'},
-                std::byte{'l'},
-                std::byte{'o'}
-            };
-
-            storage.save("test.bin", data);
-
-            assert(storage.exists("test.bin"));
-
-            const auto loaded = storage.load("test.bin");
-
-            assert(loaded == data);
+            std::filesystem::remove_all(testDirectory);
         }
 
-        std::filesystem::remove_all(directory);
-    }
-
-    void testRemove()
-    {
-        const auto directory = createTestDirectory();
-
-        {
-            Storage storage(directory);
-
-            const std::vector<std::byte> data{
-                std::byte{'T'},
-                std::byte{'e'},
-                std::byte{'s'},
-                std::byte{'t'}
-            };
-
-            storage.save("test.bin", data);
-
-            assert(storage.exists("test.bin"));
-
-            const bool removed =
-                storage.remove("test.bin");
-
-            assert(removed);
-            assert(!storage.exists("test.bin"));
-
-            // Повторное удаление несуществующего файла
-            // не является ошибкой.
-            assert(!storage.remove("test.bin"));
-        }
-
-        std::filesystem::remove_all(directory);
-    }
-
-    void testRejectsInvalidFilename()
-    {
-        const auto directory = createTestDirectory();
-
-        {
-            Storage storage(directory);
-
-            const std::vector<std::byte> data{
-                std::byte{'X'}
-            };
-
-            bool exceptionThrown = false;
-
-            try {
-                storage.save("../outside.bin", data);
-            }
-            catch (const std::invalid_argument&) {
-                exceptionThrown = true;
-            }
-
-            assert(exceptionThrown);
-        }
-
-        std::filesystem::remove_all(directory);
-    }
+        std::filesystem::path testDirectory;
+    };
 
 } // namespace
 
-int main()
+TEST_F(StorageTest, CreatesRootDirectory)
 {
-    testStorageCreatesDirectory();
-    testSaveAndLoad();
-    testRemove();
-    testRejectsInvalidFilename();
+    Storage storage(testDirectory);
 
-    return 0;
+    EXPECT_TRUE(
+        std::filesystem::exists(testDirectory)
+    );
+
+    EXPECT_TRUE(
+        std::filesystem::is_directory(testDirectory)
+    );
+}
+
+TEST_F(StorageTest, SavesAndLoadsData)
+{
+    Storage storage(testDirectory);
+
+    const std::vector<std::byte> data{
+        std::byte{'H'},
+        std::byte{'e'},
+        std::byte{'l'},
+        std::byte{'l'},
+        std::byte{'o'}
+    };
+
+    storage.save("test.bin", data);
+
+    EXPECT_TRUE(
+        storage.exists("test.bin")
+    );
+
+    const auto loaded =
+        storage.load("test.bin");
+
+    EXPECT_EQ(loaded, data);
+}
+
+TEST_F(StorageTest, RemovesFile)
+{
+    Storage storage(testDirectory);
+
+    const std::vector<std::byte> data{
+        std::byte{'T'},
+        std::byte{'e'},
+        std::byte{'s'},
+        std::byte{'t'}
+    };
+
+    storage.save("test.bin", data);
+
+    ASSERT_TRUE(
+        storage.exists("test.bin")
+    );
+
+    EXPECT_TRUE(
+        storage.remove("test.bin")
+    );
+
+    EXPECT_FALSE(
+        storage.exists("test.bin")
+    );
+
+    // Удаление уже отсутствующего файла
+    // должно просто вернуть false.
+    EXPECT_FALSE(
+        storage.remove("test.bin")
+    );
+}
+
+TEST_F(StorageTest, RejectsParentPath)
+{
+    Storage storage(testDirectory);
+
+    const std::vector<std::byte> data{
+        std::byte{'X'}
+    };
+
+    EXPECT_THROW(
+        storage.save("../outside.bin", data),
+        std::invalid_argument
+    );
+}
+
+TEST_F(StorageTest, RejectsAbsolutePath)
+{
+    Storage storage(testDirectory);
+
+    const std::vector<std::byte> data{
+        std::byte{'X'}
+    };
+
+    const auto absolutePath =
+        std::filesystem::temp_directory_path() /
+        "outside.bin";
+
+    EXPECT_THROW(
+        storage.save(
+            absolutePath.string(),
+            data
+        ),
+        std::invalid_argument
+    );
 }

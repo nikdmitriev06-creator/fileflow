@@ -1,0 +1,110 @@
+{
+  "tests": 16,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "JobTest",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "InitialState",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 13
+        },
+        {
+          "name": "SuccessfulFlow",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 39
+        },
+        {
+          "name": "FailedFlow",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 72
+        },
+        {
+          "name": "CannotCompletePendingJob",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "name": "JobQueueTest",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "PushAndPop",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 112
+        },
+        {
+          "name": "RejectsJobsAfterShutdown",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 142
+        },
+        {
+          "name": "RejectsNullJob",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\JobTests.cpp",
+          "line": 160
+        }
+      ]
+    },
+    {
+      "name": "StorageTest",
+      "tests": 5,
+      "testsuite": [
+        {
+          "name": "CreatesRootDirectory",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\StorageTests.cpp",
+          "line": 34
+        },
+        {
+          "name": "SavesAndLoadsData",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\StorageTests.cpp",
+          "line": 47
+        },
+        {
+          "name": "RemovesFile",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\StorageTests.cpp",
+          "line": 71
+        },
+        {
+          "name": "RejectsParentPath",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\StorageTests.cpp",
+          "line": 103
+        },
+        {
+          "name": "RejectsAbsolutePath",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\StorageTests.cpp",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "name": "FileProcessorTest",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "CalculatesHash",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\FileProcessorTests.cpp",
+          "line": 42
+        },
+        {
+          "name": "DifferentContentsProduceDifferentHashes",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\FileProcessorTests.cpp",
+          "line": 83
+        },
+        {
+          "name": "ThrowsForMissingFile",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\FileProcessorTests.cpp",
+          "line": 139
+        },
+        {
+          "name": "ThrowsForUnsupportedOperation",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\FileProcessorTests.cpp",
+          "line": 155
+        }
+      ]
+    }
+  ]
+}

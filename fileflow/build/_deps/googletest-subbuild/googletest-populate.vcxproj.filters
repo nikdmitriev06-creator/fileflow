@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fdd6efa9ec01beaab2909a3938be08fb\googletest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\153068703364069066f891f1c0cc818d\googletest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\fb99d5b4f045bdd4cf063e215530f433\googletest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-subbuild\CMakeFiles\googletest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E82BB288-DB11-3BDB-B0A1-F5C8FC4DD36C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

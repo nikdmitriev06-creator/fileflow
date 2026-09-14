@@ -4,10 +4,22 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\JobTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\StorageTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\FileProcessorTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\Job.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\JobQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\storage\Storage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
