@@ -1,6 +1,5 @@
 #include "Application.h"
 
-#include "domain/job/Job.h"
 #include "infrastructure/logging/Logger.h"
 
 #include <memory>
@@ -14,16 +13,40 @@ namespace fileflow::application {
     )
         : config_(std::move(config)),
         storage_(config_.storageDirectory),
-        httpServer_(config_.httpPort),
+        httpServer_(config_.httpPort, *this),
         workerPool_(queue_, config_.workerCount)
     {
     }
 
+    domain::Job::Id Application::submitJob(
+        std::string filename,
+        domain::JobOperation operation
+    )
+    {
+        const auto jobId = nextJobId_++;
+
+        auto job = std::make_shared<domain::Job>(
+            jobId,
+            std::move(filename),
+            operation
+        );
+
+        if (!queue_.push(job)) {
+            throw std::runtime_error(
+                "Failed to submit job: queue is shutting down"
+            );
+        }
+
+        infrastructure::logging::Logger::info(
+            "Submitted job " +
+            std::to_string(jobId)
+        );
+
+        return jobId;
+    }
+
     void Application::run()
     {
-        using domain::Job;
-        using domain::JobOperation;
-
         infrastructure::logging::Logger::info(
             "FileFlow v0.1.0"
         );
@@ -42,38 +65,7 @@ namespace fileflow::application {
             config_.storageDirectory
         );
 
-        for (Job::Id id = 1; id <= 6; ++id) {
-
-            auto job = std::make_shared<Job>(
-                id,
-                "test.txt",
-                JobOperation::CalculateHash
-            );
-
-            if (!queue_.push(std::move(job))) {
-                infrastructure::logging::Logger::error(
-                    "Failed to submit job " +
-                    std::to_string(id)
-                );
-
-                return;
-            }
-
-            infrastructure::logging::Logger::info(
-                "Submitted job " +
-                std::to_string(id)
-            );
-        }
-
-        infrastructure::logging::Logger::info(
-            "Waiting for jobs..."
-        );
-
-        queue_.waitUntilEmpty();
-
-        infrastructure::logging::Logger::info(
-            "All jobs completed."
-        );
+        httpServer_.run();
     }
 
-} // namespace fileflow::application
+}
