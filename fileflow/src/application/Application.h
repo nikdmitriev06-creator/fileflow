@@ -13,6 +13,7 @@
 #include <mutex>
 #include <unordered_map>
 #include <atomic>
+#include <filesystem>
 
 namespace fileflow::application {
 
@@ -45,6 +46,25 @@ namespace fileflow::application {
         std::shared_ptr<domain::Job> findJob(
             domain::Job::Id id
         ) const;
+
+        [[nodiscard]]
+        domain::Job::Id submitJob(
+            std::string filename,
+            std::filesystem::path inputPath,
+            domain::JobOperation operation
+        );
+
+        // Сохраняет загруженный файл, создаёт Job и отправляет его в очередь.
+        //
+        // filename — исходное имя файла от клиента.
+        // content  — содержимое файла.
+        // operation — операция, которую должен выполнить worker.
+        [[nodiscard]]
+        domain::Job::Id uploadFile(
+            std::string filename,
+            const std::string& content,
+            domain::JobOperation operation
+        );
 
     private:
         infrastructure::config::Config config_;

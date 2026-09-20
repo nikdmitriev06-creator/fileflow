@@ -1,5 +1,5 @@
 {
-  "tests": 20,
+  "tests": 21,
   "name": "AllTests",
   "testsuites": [
     {
@@ -108,7 +108,7 @@
     },
     {
       "name": "HttpServerTest",
-      "tests": 4,
+      "tests": 5,
       "testsuite": [
         {
           "name": "HealthEndpoint",
@@ -129,6 +129,11 @@
           "name": "GetUnknownJobReturnsNotFound",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
           "line": 223
+        },
+        {
+          "name": "UploadFile",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 249
         }
       ]
     }

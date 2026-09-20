@@ -5,6 +5,7 @@
 #include <mutex>
 #include <optional>
 #include <string>
+#include <filesystem>
 
 namespace fileflow::domain {
 
@@ -38,6 +39,13 @@ namespace fileflow::domain {
             JobOperation operation
         );
 
+        Job(
+            Id id,
+            std::string filename,
+            std::filesystem::path inputPath,
+            JobOperation operation
+        );
+
         [[nodiscard]]
         Id id() const noexcept;
 
@@ -65,6 +73,9 @@ namespace fileflow::domain {
         [[nodiscard]]
         const std::optional<std::string>& result() const noexcept;
 
+        [[nodiscard]]
+        const std::filesystem::path& inputPath() const noexcept;
+
         // Создаёт безопасную копию текущего состояния Job.
         [[nodiscard]]
         JobSnapshot snapshot() const;
@@ -89,6 +100,8 @@ namespace fileflow::domain {
         std::optional<std::string> error_;
         std::optional<std::string> result_;
 
+        std::filesystem::path inputPath_;
+
         // Worker изменяет Job, а HTTP может одновременно читать его.
         // Mutex защищает состояние от data race.
         mutable std::mutex mutex_;
@@ -104,6 +117,7 @@ namespace fileflow::domain {
         std::optional<Job::TimePoint> completedAt;
         std::optional<std::string> error;
         std::optional<std::string> result;
+        std::filesystem::path inputPath;
     };
 
 }

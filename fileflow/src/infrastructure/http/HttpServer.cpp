@@ -228,6 +228,7 @@ namespace fileflow::infrastructure::http {
                         const auto jobId =
                             application_.submitJob(
                                 filename,
+                                filename,
                                 operation
                             );
 
@@ -294,6 +295,143 @@ namespace fileflow::infrastructure::http {
             }
         );
 
+        server_->Post(
+            "/files",
+            [this](const httplib::Request& request, httplib::Response& response) {
+                try {
+                    if (!request.is_multipart_form_data()) {
+                        response.status = 400;
+
+                        const json errorJson{
+                            {"error", "Expected multipart/form-data"}
+                        };
+
+                        response.set_content(
+                            errorJson.dump(),
+                            "application/json"
+                        );
+
+                        return;
+                    }
+
+                    if (!request.has_file("file")) {
+                        response.status = 400;
+
+                        const json errorJson{
+                            {"error", "Missing file field"}
+                        };
+
+                        response.set_content(
+                            errorJson.dump(),
+                            "application/json"
+                        );
+
+                        return;
+                    }
+
+                    if (!request.has_file("operation")) {
+                        response.status = 400;
+
+                        const json errorJson{
+                            {"error", "Missing operation"}
+                        };
+
+                        response.set_content(
+                            errorJson.dump(),
+                            "application/json"
+                        );
+
+                        return;
+                    }
+
+                    const auto& file =
+                        request.get_file_value("file");
+
+                    if (file.filename.empty()) {
+                        response.status = 400;
+
+                        const json errorJson{
+                            {"error", "Filename is empty"}
+                        };
+
+                        response.set_content(
+                            errorJson.dump(),
+                            "application/json"
+                        );
+
+                        return;
+                    }
+
+                    const auto operationField =
+                        request.get_file_value("operation");
+
+                    const auto operation =
+                        parseOperation(operationField.content);
+
+                    /*
+                     * HttpServer не знает, как именно организовано
+                     * хранение файла и создание Job.
+                     *
+                     * Он только извлекает данные HTTP-запроса
+                     * и передаёт их Application.
+                     */
+                    const auto jobId =
+                        application_.uploadFile(
+                            file.filename,
+                            file.content,
+                            operation
+                        );
+
+                    const json responseJson{
+                        {"id", jobId},
+                        {"filename", file.filename},
+                        {"status", "pending"}
+                    };
+
+                    response.status = 201;
+
+                    response.set_content(
+                        responseJson.dump(),
+                        "application/json"
+                    );
+
+                    infrastructure::logging::Logger::info(
+                        "HTTP POST /files created job " +
+                        std::to_string(jobId)
+                    );
+                }
+                catch (const std::invalid_argument& error) {
+                    response.status = 400;
+
+                    const json errorJson{
+                        {"error", error.what()}
+                    };
+
+                    response.set_content(
+                        errorJson.dump(),
+                        "application/json"
+                    );
+                }
+                catch (const std::exception& error) {
+                    response.status = 500;
+
+                    const json errorJson{
+                        {"error", "Internal server error"},
+                        {"message", error.what()}
+                    };
+
+                    response.set_content(
+                        errorJson.dump(),
+                        "application/json"
+                    );
+
+                    infrastructure::logging::Logger::error(
+                        "Failed to upload file: " +
+                        std::string(error.what())
+                    );
+                }
+            }
+        );
         infrastructure::logging::Logger::info(
             "HTTP server listening on port " +
             std::to_string(port_)

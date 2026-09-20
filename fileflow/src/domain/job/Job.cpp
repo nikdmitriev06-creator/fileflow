@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <utility>
+#include <filesystem>
 
 namespace fileflow::domain {
 
@@ -10,8 +11,24 @@ namespace fileflow::domain {
         std::string filename,
         JobOperation operation
     )
+        : Job(
+            id,
+            filename,
+            std::filesystem::path(filename),
+            operation
+        )
+    {
+    }
+
+    Job::Job(
+        Id id,
+        std::string filename,
+        std::filesystem::path inputPath,
+        JobOperation operation
+    )
         : id_(id),
         filename_(std::move(filename)),
+        inputPath_(std::move(inputPath)),
         operation_(operation),
         status_(JobStatus::Pending),
         createdAt_(std::chrono::system_clock::now())
@@ -64,6 +81,11 @@ namespace fileflow::domain {
         return result_;
     }
 
+    const std::filesystem::path& Job::inputPath() const noexcept
+    {
+        return inputPath_;
+    }
+
     JobSnapshot Job::snapshot() const
     {
         std::lock_guard lock(mutex_);
@@ -77,7 +99,9 @@ namespace fileflow::domain {
             .startedAt = startedAt_,
             .completedAt = completedAt_,
             .error = error_,
-            .result = result_
+            .result = result_,
+            .inputPath = inputPath_
+
         };
     }
 

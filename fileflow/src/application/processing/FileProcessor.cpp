@@ -14,7 +14,7 @@ namespace fileflow::application::processing {
         switch (job.operation()) {
 
         case domain::JobOperation::CalculateHash: {
-            const auto hash = calculateHash(job.filename());
+            const auto hash = calculateHash(job.inputPath().string());
 
             // Преобразуем числовой hash в hexadecimal строку.
             std::ostringstream stream;
