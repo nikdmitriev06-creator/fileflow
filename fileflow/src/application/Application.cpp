@@ -92,4 +92,9 @@ namespace fileflow::application {
         httpServer_.run();
     }
 
+    void Application::stopHttpServer()
+    {
+        httpServer_.stop();
+    }
+
 }

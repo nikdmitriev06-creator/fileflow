@@ -10,21 +10,42 @@
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\FileProcessorTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\HttpServerTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\Job.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\JobQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\WorkerPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\logging\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\config\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\storage\Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp">
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\http\HttpServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\genos\source\repos\FileFlow\fileflow\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\nlohmann_json.natvis" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

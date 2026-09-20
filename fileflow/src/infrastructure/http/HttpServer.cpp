@@ -8,8 +8,9 @@
 #include <nlohmann/json.hpp>
 
 #include <cstdint>
-#include <string>
+#include <memory>
 #include <stdexcept>
+#include <string>
 
 namespace fileflow::infrastructure::http {
 
@@ -42,64 +43,68 @@ namespace fileflow::infrastructure::http {
             );
         }
 
-    }
+        const char* statusToString(
+            domain::JobStatus status
+        )
+        {
+            switch (status) {
+            case domain::JobStatus::Pending:
+                return "pending";
 
-    const char* statusToString(
-        domain::JobStatus status
-    )
-    {
-        switch (status) {
-        case domain::JobStatus::Pending:
-            return "pending";
+            case domain::JobStatus::Processing:
+                return "processing";
 
-        case domain::JobStatus::Processing:
-            return "processing";
+            case domain::JobStatus::Completed:
+                return "completed";
 
-        case domain::JobStatus::Completed:
-            return "completed";
+            case domain::JobStatus::Failed:
+                return "failed";
+            }
 
-        case domain::JobStatus::Failed:
-            return "failed";
+            return "unknown";
         }
 
-        return "unknown";
-    }
+        const char* operationToString(
+            domain::JobOperation operation
+        )
+        {
+            switch (operation) {
+            case domain::JobOperation::CalculateHash:
+                return "calculate_hash";
 
-    const char* operationToString(
-        domain::JobOperation operation
-    )
-    {
-        switch (operation) {
-        case domain::JobOperation::CalculateHash:
-            return "calculate_hash";
+            case domain::JobOperation::Resize:
+                return "resize";
 
-        case domain::JobOperation::Resize:
-            return "resize";
+            case domain::JobOperation::Convert:
+                return "convert";
 
-        case domain::JobOperation::Convert:
-            return "convert";
+            case domain::JobOperation::Compress:
+                return "compress";
+            }
 
-        case domain::JobOperation::Compress:
-            return "compress";
+            return "unknown";
         }
 
-        return "unknown";
-    }
+    } // namespace
 
     HttpServer::HttpServer(
         std::uint16_t port,
         application::Application& application
     )
         : port_(port),
-        application_(application)
+        application_(application),
+        server_(std::make_unique<httplib::Server>())
     {
+    }
+
+    HttpServer::~HttpServer()
+    {
+        stop();
     }
 
     void HttpServer::run()
     {
-        httplib::Server server;
-
-        server.Get(
+        server_->Get(
             "/health",
             [](const httplib::Request&, httplib::Response& response) {
                 response.set_content(
@@ -109,7 +114,7 @@ namespace fileflow::infrastructure::http {
             }
         );
 
-        server.Get(
+        server_->Get(
             R"(/jobs/(\d+))",
             [this](
                 const httplib::Request& request,
@@ -139,10 +144,9 @@ namespace fileflow::infrastructure::http {
                             return;
                         }
 
-                        // Получаем согласованное состояние Job.
-                        //
-                        // После snapshot() worker может продолжать менять Job,
-                        // но HTTP-поток работает уже с собственной копией данных.
+                        // snapshot() создаёт независимую копию состояния Job.
+                        // Поэтому worker может продолжать изменять Job,
+                        // пока HTTP-поток формирует ответ.
                         const auto snapshot = job->snapshot();
 
                         json responseJson{
@@ -180,7 +184,7 @@ namespace fileflow::infrastructure::http {
             }
         );
 
-        server.Post(
+        server_->Post(
             "/jobs",
             [this](
                 const httplib::Request& request,
@@ -295,11 +299,17 @@ namespace fileflow::infrastructure::http {
             std::to_string(port_)
         );
 
-        server.listen(
+        server_->listen(
             "0.0.0.0",
             port_
         );
     }
 
-}
+    void HttpServer::stop()
+    {
+        if (server_) {
+            server_->stop();
+        }
+    }
 
+}

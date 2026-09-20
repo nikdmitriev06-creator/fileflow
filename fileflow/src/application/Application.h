@@ -29,6 +29,8 @@ namespace fileflow::application {
 
         void run();
 
+        void stopHttpServer();
+
         // Создаёт новую задачу и отправляет её в очередь.
         //
         // HttpServer не работает с JobQueue напрямую.

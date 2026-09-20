@@ -86,8 +86,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-src" /utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -109,16 +109,16 @@
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -138,7 +138,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>lib\Debug\gtest_main.lib;lib\Debug\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\Debug\gtest_main.lib;_deps\spdlog-build\Debug\spdlogd.lib;lib\Debug\gtest.lib;ws2_32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -157,8 +157,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-src" /utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -179,18 +179,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -210,7 +210,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>lib\Release\gtest_main.lib;lib\Release\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\Release\gtest_main.lib;_deps\spdlog-build\Release\spdlog.lib;lib\Release\gtest.lib;ws2_32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -229,8 +229,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-src" /utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -251,18 +251,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -282,7 +282,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>lib\MinSizeRel\gtest_main.lib;lib\MinSizeRel\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\MinSizeRel\gtest_main.lib;_deps\spdlog-build\MinSizeRel\spdlog.lib;lib\MinSizeRel\gtest.lib;ws2_32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -301,8 +301,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest/include" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/googletest-src/googletest" /external:I "C:/Users/genos/source/repos/FileFlow/fileflow/build/_deps/cpp_httplib-src" /utf-8</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -324,16 +324,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;SPDLOG_COMPILED_LIB;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\genos\source\repos\FileFlow\fileflow\src;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest\include;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-src\googletest;C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\cpp_httplib-src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -353,7 +353,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>lib\RelWithDebInfo\gtest_main.lib;lib\RelWithDebInfo\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\RelWithDebInfo\gtest_main.lib;_deps\spdlog-build\RelWithDebInfo\spdlog.lib;lib\RelWithDebInfo\gtest.lib;ws2_32.lib;crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -431,10 +431,18 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\JobTests.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\StorageTests.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\FileProcessorTests.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\tests\HttpServerTests.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\Application.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\Job.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\JobQueue.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\domain\job\WorkerPool.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\logging\Logger.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\config\Config.cpp" />
     <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\storage\Storage.cpp" />
-    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\application\processing\FileProcessor.cpp" />
+    <ClCompile Include="C:\Users\genos\source\repos\FileFlow\fileflow\src\infrastructure\http\HttpServer.cpp" />
+    <Natvis Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\nlohmann_json-src\nlohmann_json.natvis">
+    </Natvis>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -451,6 +459,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\googletest-build\googletest\gtest_main.vcxproj">
       <Project>{62795C42-5ABC-3040-9E6E-A12AE43FB4C3}</Project>
       <Name>gtest_main</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\genos\source\repos\FileFlow\fileflow\build\_deps\spdlog-build\spdlog.vcxproj">
+      <Project>{C61B8910-54DA-3726-954C-6DCE14AAAC6C}</Project>
+      <Name>spdlog</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

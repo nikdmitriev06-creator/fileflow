@@ -30,8 +30,6 @@ FetchContent_Declare(
     GIT_TAG v3.12.0
 )
 
-FetchContent_MakeAvailable(nlohmann_json)
-
 FetchContent_Declare(
     googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
@@ -49,10 +47,6 @@ FetchContent_MakeAvailable(cpp_httplib)
 FetchContent_MakeAvailable(googletest)
 
 FetchContent_MakeAvailable(nlohmann_json)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
 # ============================================================
 # Main application
@@ -90,6 +84,7 @@ target_link_libraries(fileflow PRIVATE
     nlohmann_json::nlohmann_json
     httplib::httplib
 )
+
 target_compile_features(fileflow PRIVATE cxx_std_20)
 
 if (MSVC)
@@ -117,17 +112,23 @@ add_executable(fileflow_tests
     tests/JobTests.cpp
     tests/StorageTests.cpp
     tests/FileProcessorTests.cpp
+    tests/HttpServerTests.cpp
+
+    src/application/Application.cpp
+    src/application/processing/FileProcessor.cpp
 
     src/domain/job/Job.cpp
     src/domain/job/JobQueue.cpp
+    src/domain/job/WorkerPool.cpp
 
+    src/infrastructure/logging/Logger.cpp
+    src/infrastructure/config/Config.cpp
     src/infrastructure/storage/Storage.cpp
-
-    src/application/processing/FileProcessor.cpp
+    src/infrastructure/http/HttpServer.cpp
 )
 
 target_include_directories(fileflow_tests PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    src
 )
 
 target_compile_features(fileflow_tests PRIVATE
@@ -136,9 +137,12 @@ target_compile_features(fileflow_tests PRIVATE
 
 target_link_libraries(fileflow_tests PRIVATE
     GTest::gtest_main
+    spdlog::spdlog
+    nlohmann_json::nlohmann_json
+    httplib::httplib
 )
 
-if (MSVC)
+if(MSVC)
     target_compile_options(fileflow_tests PRIVATE
         /W4
         /permissive-
@@ -153,5 +157,4 @@ else()
 endif()
 
 include(GoogleTest)
-
 gtest_discover_tests(fileflow_tests)

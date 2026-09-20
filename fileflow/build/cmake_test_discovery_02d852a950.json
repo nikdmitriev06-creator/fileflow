@@ -1,5 +1,5 @@
 {
-  "tests": 16,
+  "tests": 20,
   "name": "AllTests",
   "testsuites": [
     {
@@ -103,6 +103,32 @@
           "name": "ThrowsForUnsupportedOperation",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\FileProcessorTests.cpp",
           "line": 155
+        }
+      ]
+    },
+    {
+      "name": "HttpServerTest",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "HealthEndpoint",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 90
+        },
+        {
+          "name": "CreateJob",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 121
+        },
+        {
+          "name": "GetExistingJob",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 160
+        },
+        {
+          "name": "GetUnknownJobReturnsNotFound",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 223
         }
       ]
     }
