@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "domain/job/Job.h"
 
@@ -8,39 +8,39 @@
 namespace fileflow::application::processing {
 
     /**
-     * @brief Результат обработки файла.
+     * @brief Р РµР·СѓР»СЊС‚Р°С‚ РѕР±СЂР°Р±РѕС‚РєРё С„Р°Р№Р»Р°.
      *
-     * Пока процессор возвращает только hash.
-     * Позже сюда можно добавить:
+     * РџРѕРєР° РїСЂРѕС†РµСЃСЃРѕСЂ РІРѕР·РІСЂР°С‰Р°РµС‚ С‚РѕР»СЊРєРѕ hash.
+     * РџРѕР·Р¶Рµ СЃСЋРґР° РјРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ:
      * - outputPath;
      * - fileSize;
      * - processingTime;
      * - metadata;
-     * и т.д.
+     * Рё С‚.Рґ.
      */
     struct ProcessingResult {
         std::string hash;
     };
 
     /**
-     * @brief Выполняет операции над файлами.
+     * @brief Р’С‹РїРѕР»РЅСЏРµС‚ РѕРїРµСЂР°С†РёРё РЅР°Рґ С„Р°Р№Р»Р°РјРё.
      *
-     * FileProcessor не знает о:
+     * FileProcessor РЅРµ Р·РЅР°РµС‚ Рѕ:
      * - HTTP;
      * - JobQueue;
      * - WorkerPool;
      * - PostgreSQL.
      *
-     * Он получает Job и выполняет непосредственно
-     * операцию над файлом.
+     * РћРЅ РїРѕР»СѓС‡Р°РµС‚ Job Рё РІС‹РїРѕР»РЅСЏРµС‚ РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ
+     * РѕРїРµСЂР°С†РёСЋ РЅР°Рґ С„Р°Р№Р»РѕРј.
      */
     class FileProcessor {
     public:
         /**
-         * @brief Обрабатывает файл согласно типу JobOperation.
+         * @brief РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ С„Р°Р№Р» СЃРѕРіР»Р°СЃРЅРѕ С‚РёРїСѓ JobOperation.
          *
-         * @throws std::runtime_error если файл невозможно открыть
-         *         или произошла ошибка обработки.
+         * @throws std::runtime_error РµСЃР»Рё С„Р°Р№Р» РЅРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ
+         *         РёР»Рё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РѕР±СЂР°Р±РѕС‚РєРё.
          */
         [[nodiscard]]
         ProcessingResult process(
@@ -49,7 +49,7 @@ namespace fileflow::application::processing {
 
     private:
         /**
-         * @brief Вычисляет FNV-1a hash файла.
+         * @brief Р’С‹С‡РёСЃР»СЏРµС‚ FNV-1a hash С„Р°Р№Р»Р°.
          */
         [[nodiscard]]
         std::uint64_t calculateHash(

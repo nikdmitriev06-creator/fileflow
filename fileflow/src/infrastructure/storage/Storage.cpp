@@ -1,4 +1,4 @@
-#include "Storage.h"
+п»ї#include "Storage.h"
 
 #include <fstream>
 #include <stdexcept>
@@ -19,10 +19,10 @@ namespace fileflow::infrastructure::storage {
 
         std::error_code error;
 
-        // Создаём всю структуру директорий.
+        // РЎРѕР·РґР°С‘Рј РІСЃСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ РґРёСЂРµРєС‚РѕСЂРёР№.
         //
-        // error_code используем вместо исключения filesystem,
-        // чтобы получить контролируемую ошибку.
+        // error_code РёСЃРїРѕР»СЊР·СѓРµРј РІРјРµСЃС‚Рѕ РёСЃРєР»СЋС‡РµРЅРёСЏ filesystem,
+        // С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РєРѕРЅС‚СЂРѕР»РёСЂСѓРµРјСѓСЋ РѕС€РёР±РєСѓ.
         std::filesystem::create_directories(
             rootDirectory_,
             error
@@ -88,7 +88,7 @@ namespace fileflow::infrastructure::storage {
             );
         }
 
-        // Переходим в конец, чтобы определить размер файла.
+        // РџРµСЂРµС…РѕРґРёРј РІ РєРѕРЅРµС†, С‡С‚РѕР±С‹ РѕРїСЂРµРґРµР»РёС‚СЊ СЂР°Р·РјРµСЂ С„Р°Р№Р»Р°.
         file.seekg(0, std::ios::end);
 
         const auto size = file.tellg();
@@ -183,14 +183,14 @@ namespace fileflow::infrastructure::storage {
 
         const std::filesystem::path filePath(filename);
 
-        // На данном этапе запрещаем передавать путь
-        // вместо имени файла.
+        // РќР° РґР°РЅРЅРѕРј СЌС‚Р°РїРµ Р·Р°РїСЂРµС‰Р°РµРј РїРµСЂРµРґР°РІР°С‚СЊ РїСѓС‚СЊ
+        // РІРјРµСЃС‚Рѕ РёРјРµРЅРё С„Р°Р№Р»Р°.
         //
-        // Например:
+        // РќР°РїСЂРёРјРµСЂ:
         // "../secret.txt"
         // "C:\\Windows\\..."
         //
-        // Это важная базовая защита от path traversal.
+        // Р­С‚Рѕ РІР°Р¶РЅР°СЏ Р±Р°Р·РѕРІР°СЏ Р·Р°С‰РёС‚Р° РѕС‚ path traversal.
         if (filePath.has_parent_path() ||
             filePath.is_absolute()) {
 

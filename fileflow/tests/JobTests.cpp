@@ -1,4 +1,4 @@
-#include "domain/job/Job.h"
+п»ї#include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
 
 #include <gtest/gtest.h>
@@ -131,7 +131,7 @@ TEST(JobQueueTest, PushAndPop)
     EXPECT_EQ(receivedJob->id(), 1);
     EXPECT_EQ(queue.size(), 0);
 
-    // Job уже забран worker'ом, но ещё не завершён.
+    // Job СѓР¶Рµ Р·Р°Р±СЂР°РЅ worker'РѕРј, РЅРѕ РµС‰С‘ РЅРµ Р·Р°РІРµСЂС€С‘РЅ.
     EXPECT_EQ(queue.unfinishedJobs(), 1);
 
     queue.taskCompleted();

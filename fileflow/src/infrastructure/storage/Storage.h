@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <filesystem>
 #include <string>
@@ -7,31 +7,31 @@
 namespace fileflow::infrastructure::storage {
 
     /**
-     * @brief Отвечает за хранение файлов на диске.
+     * @brief РћС‚РІРµС‡Р°РµС‚ Р·Р° С…СЂР°РЅРµРЅРёРµ С„Р°Р№Р»РѕРІ РЅР° РґРёСЃРєРµ.
      *
-     * Storage скрывает детали работы с std::filesystem
-     * от остальных компонентов приложения.
+     * Storage СЃРєСЂС‹РІР°РµС‚ РґРµС‚Р°Р»Рё СЂР°Р±РѕС‚С‹ СЃ std::filesystem
+     * РѕС‚ РѕСЃС‚Р°Р»СЊРЅС‹С… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ РїСЂРёР»РѕР¶РµРЅРёСЏ.
      */
     class Storage {
     public:
         /**
-         * @param rootDirectory Корневая директория хранилища.
+         * @param rootDirectory РљРѕСЂРЅРµРІР°СЏ РґРёСЂРµРєС‚РѕСЂРёСЏ С…СЂР°РЅРёР»РёС‰Р°.
          *
-         * Если директории не существует, она будет создана.
+         * Р•СЃР»Рё РґРёСЂРµРєС‚РѕСЂРёРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РѕРЅР° Р±СѓРґРµС‚ СЃРѕР·РґР°РЅР°.
          *
-         * @throws std::runtime_error если директорию невозможно создать.
+         * @throws std::runtime_error РµСЃР»Рё РґРёСЂРµРєС‚РѕСЂРёСЋ РЅРµРІРѕР·РјРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ.
          */
         explicit Storage(
             std::filesystem::path rootDirectory
         );
 
         /**
-         * @brief Сохраняет файл.
+         * @brief РЎРѕС…СЂР°РЅСЏРµС‚ С„Р°Р№Р».
          *
-         * @param filename Имя файла внутри storage.
-         * @param data Данные файла.
+         * @param filename РРјСЏ С„Р°Р№Р»Р° РІРЅСѓС‚СЂРё storage.
+         * @param data Р”Р°РЅРЅС‹Рµ С„Р°Р№Р»Р°.
          *
-         * @throws std::runtime_error при ошибке записи.
+         * @throws std::runtime_error РїСЂРё РѕС€РёР±РєРµ Р·Р°РїРёСЃРё.
          */
         void save(
             const std::string& filename,
@@ -39,9 +39,9 @@ namespace fileflow::infrastructure::storage {
         ) const;
 
         /**
-         * @brief Загружает файл целиком в память.
+         * @brief Р—Р°РіСЂСѓР¶Р°РµС‚ С„Р°Р№Р» С†РµР»РёРєРѕРј РІ РїР°РјСЏС‚СЊ.
          *
-         * @throws std::runtime_error если файл невозможно прочитать.
+         * @throws std::runtime_error РµСЃР»Рё С„Р°Р№Р» РЅРµРІРѕР·РјРѕР¶РЅРѕ РїСЂРѕС‡РёС‚Р°С‚СЊ.
          */
         [[nodiscard]]
         std::vector<std::byte> load(
@@ -49,7 +49,7 @@ namespace fileflow::infrastructure::storage {
         ) const;
 
         /**
-         * @brief Проверяет существование файла.
+         * @brief РџСЂРѕРІРµСЂСЏРµС‚ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С„Р°Р№Р»Р°.
          */
         [[nodiscard]]
         bool exists(
@@ -57,25 +57,25 @@ namespace fileflow::infrastructure::storage {
         ) const;
 
         /**
-         * @brief Удаляет файл.
+         * @brief РЈРґР°Р»СЏРµС‚ С„Р°Р№Р».
          *
-         * @return true, если файл существовал и был удалён.
+         * @return true, РµСЃР»Рё С„Р°Р№Р» СЃСѓС‰РµСЃС‚РІРѕРІР°Р» Рё Р±С‹Р» СѓРґР°Р»С‘РЅ.
          */
         bool remove(
             const std::string& filename
         ) const;
 
         /**
-         * @brief Возвращает корневую директорию storage.
+         * @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕСЂРЅРµРІСѓСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ storage.
          */
         [[nodiscard]]
         const std::filesystem::path& rootDirectory() const noexcept;
 
     private:
         /**
-         * @brief Создаёт полный путь к файлу.
+         * @brief РЎРѕР·РґР°С‘С‚ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ.
          *
-         * Все операции с файлами проходят через этот метод.
+         * Р’СЃРµ РѕРїРµСЂР°С†РёРё СЃ С„Р°Р№Р»Р°РјРё РїСЂРѕС…РѕРґСЏС‚ С‡РµСЂРµР· СЌС‚РѕС‚ РјРµС‚РѕРґ.
          */
         [[nodiscard]]
         std::filesystem::path resolvePath(

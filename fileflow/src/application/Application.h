@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "domain/job/Job.h"
 #include "domain/job/JobQueue.h"
@@ -10,6 +10,9 @@
 
 #include <memory>
 #include <string>
+#include <mutex>
+#include <unordered_map>
+#include <atomic>
 
 namespace fileflow::application {
 
@@ -26,15 +29,20 @@ namespace fileflow::application {
 
         void run();
 
-        // Создаёт новую задачу и отправляет её в очередь.
+        // РЎРѕР·РґР°С‘С‚ РЅРѕРІСѓСЋ Р·Р°РґР°С‡Сѓ Рё РѕС‚РїСЂР°РІР»СЏРµС‚ РµС‘ РІ РѕС‡РµСЂРµРґСЊ.
         //
-        // HttpServer не работает с JobQueue напрямую.
-        // Это сохраняет границу между infrastructure и application слоями.
+        // HttpServer РЅРµ СЂР°Р±РѕС‚Р°РµС‚ СЃ JobQueue РЅР°РїСЂСЏРјСѓСЋ.
+        // Р­С‚Рѕ СЃРѕС…СЂР°РЅСЏРµС‚ РіСЂР°РЅРёС†Сѓ РјРµР¶РґСѓ infrastructure Рё application СЃР»РѕСЏРјРё.
         [[nodiscard]]
         domain::Job::Id submitJob(
             std::string filename,
             domain::JobOperation operation
         );
+
+        [[nodiscard]]
+        std::shared_ptr<domain::Job> findJob(
+            domain::Job::Id id
+        ) const;
 
     private:
         infrastructure::config::Config config_;
@@ -43,15 +51,18 @@ namespace fileflow::application {
 
         infrastructure::http::HttpServer httpServer_;
 
-        // Queue должна существовать дольше WorkerPool,
-        // потому что WorkerPool хранит ссылку на неё.
         domain::JobQueue queue_;
 
         domain::WorkerPool workerPool_;
 
-        // Пока храним только следующий ID в памяти.
-        // PostgreSQL появится позже и возьмёт на себя постоянное хранение.
-        domain::Job::Id nextJobId_{ 1 };
+        std::atomic<domain::Job::Id> nextJobId_{ 1 };
+
+        std::unordered_map<
+            domain::Job::Id,
+            std::shared_ptr<domain::Job>
+        > jobs_;
+
+        mutable std::mutex jobsMutex_;
     };
 
 }

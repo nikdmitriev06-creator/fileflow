@@ -1,4 +1,4 @@
-#include "JobQueue.h"
+п»ї#include "JobQueue.h"
 
 #include <stdexcept>
 #include <utility>
@@ -16,7 +16,7 @@ namespace fileflow::domain {
         {
             std::lock_guard<std::mutex> lock(mutex_);
 
-            // После shutdown Queue больше не принимает работу.
+            // РџРѕСЃР»Рµ shutdown Queue Р±РѕР»СЊС€Рµ РЅРµ РїСЂРёРЅРёРјР°РµС‚ СЂР°Р±РѕС‚Сѓ.
             if (shutdown_) {
                 return false;
             }
@@ -26,7 +26,7 @@ namespace fileflow::domain {
             ++unfinishedJobs_;
         }
 
-        // Будим одного ожидающего worker'а.
+        // Р‘СѓРґРёРј РѕРґРЅРѕРіРѕ РѕР¶РёРґР°СЋС‰РµРіРѕ worker'Р°.
         condition_.notify_one();
 
         return true;
@@ -40,8 +40,8 @@ namespace fileflow::domain {
             return !queue_.empty() || shutdown_;
             });
 
-        // Если shutdown активен и очередь уже пуста,
-        // worker может завершать работу.
+        // Р•СЃР»Рё shutdown Р°РєС‚РёРІРµРЅ Рё РѕС‡РµСЂРµРґСЊ СѓР¶Рµ РїСѓСЃС‚Р°,
+        // worker РјРѕР¶РµС‚ Р·Р°РІРµСЂС€Р°С‚СЊ СЂР°Р±РѕС‚Сѓ.
         if (queue_.empty()) {
             return nullptr;
         }
@@ -58,9 +58,9 @@ namespace fileflow::domain {
         {
             std::lock_guard<std::mutex> lock(mutex_);
 
-            // Это защитная проверка от логической ошибки:
-            // taskCompleted() нельзя вызывать больше раз,
-            // чем push().
+            // Р­С‚Рѕ Р·Р°С‰РёС‚РЅР°СЏ РїСЂРѕРІРµСЂРєР° РѕС‚ Р»РѕРіРёС‡РµСЃРєРѕР№ РѕС€РёР±РєРё:
+            // taskCompleted() РЅРµР»СЊР·СЏ РІС‹Р·С‹РІР°С‚СЊ Р±РѕР»СЊС€Рµ СЂР°Р·,
+            // С‡РµРј push().
             if (unfinishedJobs_ == 0) {
                 throw std::logic_error(
                     "taskCompleted() called with no unfinished jobs"
@@ -70,8 +70,8 @@ namespace fileflow::domain {
             --unfinishedJobs_;
         }
 
-        // Возможно, другой поток ждёт,
-        // пока все задачи завершатся.
+        // Р’РѕР·РјРѕР¶РЅРѕ, РґСЂСѓРіРѕР№ РїРѕС‚РѕРє Р¶РґС‘С‚,
+        // РїРѕРєР° РІСЃРµ Р·Р°РґР°С‡Рё Р·Р°РІРµСЂС€Р°С‚СЃСЏ.
         condition_.notify_all();
     }
 
@@ -92,7 +92,7 @@ namespace fileflow::domain {
             shutdown_ = true;
         }
 
-        // Просыпаются все worker'ы, ожидающие новые задачи.
+        // РџСЂРѕСЃС‹РїР°СЋС‚СЃСЏ РІСЃРµ worker'С‹, РѕР¶РёРґР°СЋС‰РёРµ РЅРѕРІС‹Рµ Р·Р°РґР°С‡Рё.
         condition_.notify_all();
     }
 

@@ -1,4 +1,4 @@
-#include "Job.h"
+﻿#include "Job.h"
 
 #include <stdexcept>
 #include <utility>
@@ -35,6 +35,7 @@ namespace fileflow::domain {
 
     JobStatus Job::status() const noexcept
     {
+        std::lock_guard lock(mutex_);
         return status_;
     }
 
@@ -63,8 +64,27 @@ namespace fileflow::domain {
         return result_;
     }
 
+    JobSnapshot Job::snapshot() const
+    {
+        std::lock_guard lock(mutex_);
+
+        return JobSnapshot{
+            .id = id_,
+            .filename = filename_,
+            .operation = operation_,
+            .status = status_,
+            .createdAt = createdAt_,
+            .startedAt = startedAt_,
+            .completedAt = completedAt_,
+            .error = error_,
+            .result = result_
+        };
+    }
+
     void Job::start()
     {
+        std::lock_guard lock(mutex_);
+
         if (status_ != JobStatus::Pending) {
             throw std::logic_error(
                 "Job can only be started from Pending state"
@@ -77,6 +97,8 @@ namespace fileflow::domain {
 
     void Job::complete(std::string result)
     {
+        std::lock_guard lock(mutex_);
+
         if (status_ != JobStatus::Processing) {
             throw std::logic_error(
                 "Job can only be completed from Processing state"
@@ -90,6 +112,8 @@ namespace fileflow::domain {
 
     void Job::fail(std::string error)
     {
+        std::lock_guard lock(mutex_);
+
         if (status_ != JobStatus::Processing) {
             throw std::logic_error(
                 "Job can only fail from Processing state"

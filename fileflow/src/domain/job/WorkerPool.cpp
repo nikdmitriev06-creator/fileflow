@@ -1,4 +1,4 @@
-#include "WorkerPool.h"
+ï»¿#include "WorkerPool.h"
 
 #include "application/processing/FileProcessor.h"
 
@@ -17,11 +17,11 @@ namespace {
 
         ~JobCompletionGuard()
         {
-            // RAII ãàðàíòèðóåò âûçîâ taskCompleted()
-            // ïðè ëþáîì âûõîäå èç òåêóùåé îáëàñòè âèäèìîñòè.
+            // RAII Ð³Ð°Ñ€Ð°Ð½Ñ‚Ð¸Ñ€ÑƒÐµÑ‚ Ð²Ñ‹Ð·Ð¾Ð² taskCompleted()
+            // Ð¿Ñ€Ð¸ Ð»ÑŽÐ±Ð¾Ð¼ Ð²Ñ‹Ñ…Ð¾Ð´Ðµ Ð¸Ð· Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸.
             //
-            // Ýòî ðàáîòàåò è ïðè îáû÷íîì çàâåðøåíèè,
-            // è ïðè èñêëþ÷åíèè.
+            // Ð­Ñ‚Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð¸ Ð¿Ñ€Ð¸ Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾Ð¼ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ð¸,
+            // Ð¸ Ð¿Ñ€Ð¸ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸.
             queue_.taskCompleted();
         }
 
@@ -60,12 +60,12 @@ namespace fileflow::domain {
 
     WorkerPool::~WorkerPool()
     {
-        // Çàïðåùàåì äîáàâëåíèå íîâûõ çàäà÷
-        // è áóäèì îæèäàþùèõ worker'îâ.
+        // Ð—Ð°Ð¿Ñ€ÐµÑ‰Ð°ÐµÐ¼ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð½Ð¾Ð²Ñ‹Ñ… Ð·Ð°Ð´Ð°Ñ‡
+        // Ð¸ Ð±ÑƒÐ´Ð¸Ð¼ Ð¾Ð¶Ð¸Ð´Ð°ÑŽÑ‰Ð¸Ñ… worker'Ð¾Ð².
         queue_.shutdown();
 
-        // std::jthread àâòîìàòè÷åñêè äîæä¸òñÿ
-        // çàâåðøåíèÿ worker-ïîòîêîâ.
+        // std::jthread Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð´Ð¾Ð¶Ð´Ñ‘Ñ‚ÑÑ
+        // Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ worker-Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð².
     }
 
     void WorkerPool::workerLoop(std::size_t workerId)
@@ -78,23 +78,23 @@ namespace fileflow::domain {
 
         while (true) {
 
-            // Åñëè ðàáîòû íåò, worker áëîêèðóåòñÿ âíóòðè pop().
+            // Ð•ÑÐ»Ð¸ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð½ÐµÑ‚, worker Ð±Ð»Ð¾ÐºÐ¸Ñ€ÑƒÐµÑ‚ÑÑ Ð²Ð½ÑƒÑ‚Ñ€Ð¸ pop().
             auto job = queue_.pop();
 
-            // nullptr îçíà÷àåò:
-            // shutdown àêòèâèðîâàí è íîâûõ çàäà÷ áîëüøå íåò.
+            // nullptr Ð¾Ð·Ð½Ð°Ñ‡Ð°ÐµÑ‚:
+            // shutdown Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð¾Ð²Ð°Ð½ Ð¸ Ð½Ð¾Ð²Ñ‹Ñ… Ð·Ð°Ð´Ð°Ñ‡ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½ÐµÑ‚.
             if (!job) {
                 break;
             }
 
-            // Ñ ýòîãî ìîìåíòà çàäà÷à ñ÷èòàåòñÿ
-            // íàõîäÿùåéñÿ â ñîñòîÿíèè processing.
+            // Ð¡ ÑÑ‚Ð¾Ð³Ð¾ Ð¼Ð¾Ð¼ÐµÐ½Ñ‚Ð° Ð·Ð°Ð´Ð°Ñ‡Ð° ÑÑ‡Ð¸Ñ‚Ð°ÐµÑ‚ÑÑ
+            // Ð½Ð°Ñ…Ð¾Ð´ÑÑ‰ÐµÐ¹ÑÑ Ð² ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ð¸ processing.
             job->start();
 
-            // Ñîçäà¸ì RAII guard.
+            // Ð¡Ð¾Ð·Ð´Ð°Ñ‘Ð¼ RAII guard.
             //
-            // Êîãäà worker çàêîí÷èò òåêóùóþ èòåðàöèþ,
-            // guard àâòîìàòè÷åñêè âûçîâåò taskCompleted().
+            // ÐšÐ¾Ð³Ð´Ð° worker Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ñ‚ Ñ‚ÐµÐºÑƒÑ‰ÑƒÑŽ Ð¸Ñ‚ÐµÑ€Ð°Ñ†Ð¸ÑŽ,
+            // guard Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð²Ñ‹Ð·Ð¾Ð²ÐµÑ‚ taskCompleted().
             JobCompletionGuard completionGuard(queue_);
 
             infrastructure::logging::Logger::info(
@@ -109,8 +109,8 @@ namespace fileflow::domain {
 
             try {
 
-                // Worker íå çíàåò äåòàëåé îáðàáîòêè.
-                // Îí ïðîñòî ïåðåäà¸ò Job ñïåöèàëèçèðîâàííîìó êîìïîíåíòó.
+                // Worker Ð½Ðµ Ð·Ð½Ð°ÐµÑ‚ Ð´ÐµÑ‚Ð°Ð»ÐµÐ¹ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸.
+                // ÐžÐ½ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¿ÐµÑ€ÐµÐ´Ð°Ñ‘Ñ‚ Job ÑÐ¿ÐµÑ†Ð¸Ð°Ð»Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð¼Ñƒ ÐºÐ¾Ð¼Ð¿Ð¾Ð½ÐµÐ½Ñ‚Ñƒ.
                 const auto result = processor.process(*job);
 
                 job->complete(result.hash);
@@ -125,7 +125,7 @@ namespace fileflow::domain {
             }
             catch (const std::exception& error) {
 
-                // FileProcessor ñîîáùèë îá îøèáêå.
+                // FileProcessor ÑÐ¾Ð¾Ð±Ñ‰Ð¸Ð» Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐµ.
                 job->fail(error.what());
 
                 infrastructure::logging::Logger::error(

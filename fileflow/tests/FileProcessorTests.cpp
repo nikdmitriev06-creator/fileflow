@@ -1,4 +1,4 @@
-#include "application/processing/FileProcessor.h"
+п»ї#include "application/processing/FileProcessor.h"
 
 #include "domain/job/Job.h"
 
@@ -69,8 +69,8 @@ TEST_F(FileProcessorTest, CalculatesHash)
     EXPECT_FALSE(result.hash.empty());
     EXPECT_EQ(result.hash.length(), 16);
 
-    // Проверяем детерминированность алгоритма:
-    // одинаковое содержимое должно давать одинаковый hash.
+    // РџСЂРѕРІРµСЂСЏРµРј РґРµС‚РµСЂРјРёРЅРёСЂРѕРІР°РЅРЅРѕСЃС‚СЊ Р°Р»РіРѕСЂРёС‚РјР°:
+    // РѕРґРёРЅР°РєРѕРІРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РґРѕР»Р¶РЅРѕ РґР°РІР°С‚СЊ РѕРґРёРЅР°РєРѕРІС‹Р№ hash.
     const auto secondResult =
         processor.process(job);
 

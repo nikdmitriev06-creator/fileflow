@@ -1,7 +1,8 @@
-#pragma once
+п»ї#pragma once
 
 #include <chrono>
 #include <cstdint>
+#include <mutex>
 #include <optional>
 #include <string>
 
@@ -21,18 +22,14 @@ namespace fileflow::domain {
         Compress
     };
 
-    /**
-     * @brief Описывает одну задачу FileFlow.
-     *
-     * Job содержит состояние и данные задачи.
-     * Он не знает о WorkerPool, JobQueue или FileProcessor.
-     */
+    // РЎРЅРёРјРѕРє СЃРѕСЃС‚РѕСЏРЅРёСЏ Job.
+    // РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ HTTP-РїРѕС‚РѕРєРѕРј РґР»СЏ Р±РµР·РѕРїР°СЃРЅРѕРіРѕ С‡С‚РµРЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ,
+    // РїРѕРєР° worker-РїРѕС‚РѕРє РјРѕР¶РµС‚ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ РёР·РјРµРЅСЏС‚СЊ СЃР°Рј Job.
+    struct JobSnapshot;
+
     class Job {
     public:
         using Id = std::uint64_t;
-
-        // Используем системное время, потому что timestamps
-        // потенциально будут сохраняться в PostgreSQL.
         using TimePoint = std::chrono::system_clock::time_point;
 
         Job(
@@ -41,10 +38,17 @@ namespace fileflow::domain {
             JobOperation operation
         );
 
-        [[nodiscard]] Id id() const noexcept;
-        [[nodiscard]] const std::string& filename() const noexcept;
-        [[nodiscard]] JobOperation operation() const noexcept;
-        [[nodiscard]] JobStatus status() const noexcept;
+        [[nodiscard]]
+        Id id() const noexcept;
+
+        [[nodiscard]]
+        const std::string& filename() const noexcept;
+
+        [[nodiscard]]
+        JobOperation operation() const noexcept;
+
+        [[nodiscard]]
+        JobStatus status() const noexcept;
 
         [[nodiscard]]
         TimePoint createdAt() const noexcept;
@@ -61,23 +65,14 @@ namespace fileflow::domain {
         [[nodiscard]]
         const std::optional<std::string>& result() const noexcept;
 
-        /**
-         * @brief Переводит задачу Pending -> Processing.
-         */
+        // РЎРѕР·РґР°С‘С‚ Р±РµР·РѕРїР°СЃРЅСѓСЋ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ Job.
+        [[nodiscard]]
+        JobSnapshot snapshot() const;
+
         void start();
 
-        /**
-         * @brief Переводит задачу Processing -> Completed.
-         *
-         * @param result Результат обработки.
-         */
         void complete(std::string result);
 
-        /**
-         * @brief Переводит задачу Processing -> Failed.
-         *
-         * @param error Описание ошибки.
-         */
         void fail(std::string error);
 
     private:
@@ -87,18 +82,28 @@ namespace fileflow::domain {
 
         JobStatus status_;
 
-        // Время создания задачи устанавливается в конструкторе.
         TimePoint createdAt_;
-
-        // Эти значения появляются только после соответствующих переходов.
         std::optional<TimePoint> startedAt_;
         std::optional<TimePoint> completedAt_;
 
         std::optional<std::string> error_;
-
-        // Например:
-        // hash файла, путь к результату resize и т.д.
         std::optional<std::string> result_;
+
+        // Worker РёР·РјРµРЅСЏРµС‚ Job, Р° HTTP РјРѕР¶РµС‚ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ С‡РёС‚Р°С‚СЊ РµРіРѕ.
+        // Mutex Р·Р°С‰РёС‰Р°РµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ РѕС‚ data race.
+        mutable std::mutex mutex_;
     };
 
-} // namespace fileflow::domain
+    struct JobSnapshot {
+        Job::Id id;
+        std::string filename;
+        JobOperation operation;
+        JobStatus status;
+        Job::TimePoint createdAt;
+        std::optional<Job::TimePoint> startedAt;
+        std::optional<Job::TimePoint> completedAt;
+        std::optional<std::string> error;
+        std::optional<std::string> result;
+    };
+
+}

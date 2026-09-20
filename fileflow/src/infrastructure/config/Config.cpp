@@ -1,4 +1,4 @@
-#include "Config.h"
+п»ї#include "Config.h"
 
 #include <nlohmann/json.hpp>
 
@@ -31,8 +31,8 @@ namespace fileflow::infrastructure::config {
 
         Config config;
 
-        // value() позволяет использовать значение по умолчанию,
-        // если соответствующего поля нет в JSON.
+        // value() РїРѕР·РІРѕР»СЏРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ,
+        // РµСЃР»Рё СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ РїРѕР»СЏ РЅРµС‚ РІ JSON.
         config.workerCount =
             json.value("worker_count", std::size_t{ 3 });
 
@@ -48,8 +48,8 @@ namespace fileflow::infrastructure::config {
         config.httpPort =
             json.value("http_port", std::uint16_t{ 8080 });
 
-        // Нулевое количество worker'ов не имеет смысла:
-        // задачи никогда не будут обработаны.
+        // РќСѓР»РµРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ worker'РѕРІ РЅРµ РёРјРµРµС‚ СЃРјС‹СЃР»Р°:
+        // Р·Р°РґР°С‡Рё РЅРёРєРѕРіРґР° РЅРµ Р±СѓРґСѓС‚ РѕР±СЂР°Р±РѕС‚Р°РЅС‹.
         if (config.workerCount == 0) {
             throw std::runtime_error(
                 "worker_count must be greater than zero"

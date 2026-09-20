@@ -1,4 +1,4 @@
-#include "infrastructure/storage/Storage.h"
+п»ї#include "infrastructure/storage/Storage.h"
 
 #include <gtest/gtest.h>
 
@@ -93,8 +93,8 @@ TEST_F(StorageTest, RemovesFile)
         storage.exists("test.bin")
     );
 
-    // Удаление уже отсутствующего файла
-    // должно просто вернуть false.
+    // РЈРґР°Р»РµРЅРёРµ СѓР¶Рµ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‰РµРіРѕ С„Р°Р№Р»Р°
+    // РґРѕР»Р¶РЅРѕ РїСЂРѕСЃС‚Рѕ РІРµСЂРЅСѓС‚СЊ false.
     EXPECT_FALSE(
         storage.remove("test.bin")
     );

@@ -1,4 +1,4 @@
-#include "Application.h"
+﻿#include "Application.h"
 
 #include "infrastructure/logging/Logger.h"
 
@@ -31,7 +31,16 @@ namespace fileflow::application {
             operation
         );
 
+        {
+            std::lock_guard lock(jobsMutex_);
+
+            jobs_.emplace(jobId, job);
+        }
+
         if (!queue_.push(job)) {
+            std::lock_guard lock(jobsMutex_);
+            jobs_.erase(jobId);
+
             throw std::runtime_error(
                 "Failed to submit job: queue is shutting down"
             );
@@ -43,6 +52,21 @@ namespace fileflow::application {
         );
 
         return jobId;
+    }
+
+    std::shared_ptr<domain::Job> Application::findJob(
+        domain::Job::Id id
+    ) const
+    {
+        std::lock_guard lock(jobsMutex_);
+
+        const auto it = jobs_.find(id);
+
+        if (it == jobs_.end()) {
+            return nullptr;
+        }
+
+        return it->second;
     }
 
     void Application::run()

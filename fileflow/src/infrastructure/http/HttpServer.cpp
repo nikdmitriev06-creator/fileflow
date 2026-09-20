@@ -1,4 +1,4 @@
-#include "HttpServer.h"
+﻿#include "HttpServer.h"
 
 #include "application/Application.h"
 #include "domain/job/Job.h"
@@ -9,6 +9,7 @@
 
 #include <cstdint>
 #include <string>
+#include <stdexcept>
 
 namespace fileflow::infrastructure::http {
 
@@ -43,6 +44,48 @@ namespace fileflow::infrastructure::http {
 
     }
 
+    const char* statusToString(
+        domain::JobStatus status
+    )
+    {
+        switch (status) {
+        case domain::JobStatus::Pending:
+            return "pending";
+
+        case domain::JobStatus::Processing:
+            return "processing";
+
+        case domain::JobStatus::Completed:
+            return "completed";
+
+        case domain::JobStatus::Failed:
+            return "failed";
+        }
+
+        return "unknown";
+    }
+
+    const char* operationToString(
+        domain::JobOperation operation
+    )
+    {
+        switch (operation) {
+        case domain::JobOperation::CalculateHash:
+            return "calculate_hash";
+
+        case domain::JobOperation::Resize:
+            return "resize";
+
+        case domain::JobOperation::Convert:
+            return "convert";
+
+        case domain::JobOperation::Compress:
+            return "compress";
+        }
+
+        return "unknown";
+    }
+
     HttpServer::HttpServer(
         std::uint16_t port,
         application::Application& application
@@ -63,6 +106,77 @@ namespace fileflow::infrastructure::http {
                     R"({"status":"ok"})",
                     "application/json"
                 );
+            }
+        );
+
+        server.Get(
+            R"(/jobs/(\d+))",
+            [this](
+                const httplib::Request& request,
+                httplib::Response& response
+                ) {
+                    try {
+                        const auto jobId =
+                            static_cast<domain::Job::Id>(
+                                std::stoull(request.matches[1].str())
+                                );
+
+                        const auto job =
+                            application_.findJob(jobId);
+
+                        if (!job) {
+                            response.status = 404;
+
+                            const json errorJson{
+                                {"error", "Job not found"}
+                            };
+
+                            response.set_content(
+                                errorJson.dump(),
+                                "application/json"
+                            );
+
+                            return;
+                        }
+
+                        // Получаем согласованное состояние Job.
+                        //
+                        // После snapshot() worker может продолжать менять Job,
+                        // но HTTP-поток работает уже с собственной копией данных.
+                        const auto snapshot = job->snapshot();
+
+                        json responseJson{
+                            {"id", snapshot.id},
+                            {"filename", snapshot.filename},
+                            {"operation", operationToString(snapshot.operation)},
+                            {"status", statusToString(snapshot.status)}
+                        };
+
+                        if (snapshot.result) {
+                            responseJson["result"] = *snapshot.result;
+                        }
+
+                        if (snapshot.error) {
+                            responseJson["error"] = *snapshot.error;
+                        }
+
+                        response.set_content(
+                            responseJson.dump(),
+                            "application/json"
+                        );
+                    }
+                    catch (const std::exception& error) {
+                        response.status = 400;
+
+                        const json errorJson{
+                            {"error", error.what()}
+                        };
+
+                        response.set_content(
+                            errorJson.dump(),
+                            "application/json"
+                        );
+                    }
             }
         );
 
@@ -188,3 +302,4 @@ namespace fileflow::infrastructure::http {
     }
 
 }
+

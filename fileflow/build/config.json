@@ -1,4 +1,4 @@
-{
+﻿{
     "worker_count": 3,
     "log_level": "info",
     "storage_directory": "storage",

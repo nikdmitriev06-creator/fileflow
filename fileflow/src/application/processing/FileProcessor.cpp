@@ -1,4 +1,4 @@
-#include "FileProcessor.h"
+п»ї#include "FileProcessor.h"
 
 #include <fstream>
 #include <iomanip>
@@ -16,7 +16,7 @@ namespace fileflow::application::processing {
         case domain::JobOperation::CalculateHash: {
             const auto hash = calculateHash(job.filename());
 
-            // Преобразуем числовой hash в hexadecimal строку.
+            // РџСЂРµРѕР±СЂР°Р·СѓРµРј С‡РёСЃР»РѕРІРѕР№ hash РІ hexadecimal СЃС‚СЂРѕРєСѓ.
             std::ostringstream stream;
 
             stream << std::hex
@@ -45,8 +45,8 @@ namespace fileflow::application::processing {
             );
         }
 
-        // Это место технически недостижимо при корректном
-        // значении enum, но компилятор не всегда может это доказать.
+        // Р­С‚Рѕ РјРµСЃС‚Рѕ С‚РµС…РЅРёС‡РµСЃРєРё РЅРµРґРѕСЃС‚РёР¶РёРјРѕ РїСЂРё РєРѕСЂСЂРµРєС‚РЅРѕРј
+        // Р·РЅР°С‡РµРЅРёРё enum, РЅРѕ РєРѕРјРїРёР»СЏС‚РѕСЂ РЅРµ РІСЃРµРіРґР° РјРѕР¶РµС‚ СЌС‚Рѕ РґРѕРєР°Р·Р°С‚СЊ.
         throw std::runtime_error("Unknown job operation");
     }
 
@@ -54,10 +54,10 @@ namespace fileflow::application::processing {
         const std::string& filename
     ) const
     {
-        // Открываем файл в бинарном режиме.
+        // РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» РІ Р±РёРЅР°СЂРЅРѕРј СЂРµР¶РёРјРµ.
         //
-        // Нам не нужно интерпретировать содержимое как текст.
-        // Мы должны прочитать именно последовательность байтов.
+        // РќР°Рј РЅРµ РЅСѓР¶РЅРѕ РёРЅС‚РµСЂРїСЂРµС‚РёСЂРѕРІР°С‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ РєР°Рє С‚РµРєСЃС‚.
+        // РњС‹ РґРѕР»Р¶РЅС‹ РїСЂРѕС‡РёС‚Р°С‚СЊ РёРјРµРЅРЅРѕ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ Р±Р°Р№С‚РѕРІ.
         std::ifstream file(
             filename,
             std::ios::binary
@@ -69,31 +69,31 @@ namespace fileflow::application::processing {
             );
         }
 
-        // Начальное значение FNV-1a для 64-bit.
+        // РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ FNV-1a РґР»СЏ 64-bit.
         std::uint64_t hash = 14695981039346656037ULL;
 
-        // FNV prime для 64-bit.
+        // FNV prime РґР»СЏ 64-bit.
         constexpr std::uint64_t fnvPrime = 1099511628211ULL;
 
-        // Читаем файл небольшими блоками.
+        // Р§РёС‚Р°РµРј С„Р°Р№Р» РЅРµР±РѕР»СЊС€РёРјРё Р±Р»РѕРєР°РјРё.
         //
-        // Это важно:
-        // мы не загружаем весь файл в RAM.
+        // Р­С‚Рѕ РІР°Р¶РЅРѕ:
+        // РјС‹ РЅРµ Р·Р°РіСЂСѓР¶Р°РµРј РІРµСЃСЊ С„Р°Р№Р» РІ RAM.
         constexpr std::size_t bufferSize = 8192;
 
         char buffer[bufferSize];
 
         while (file.read(buffer, sizeof(buffer)) || file.gcount() > 0) {
 
-            // gcount() показывает, сколько байт реально было прочитано.
+            // gcount() РїРѕРєР°Р·С‹РІР°РµС‚, СЃРєРѕР»СЊРєРѕ Р±Р°Р№С‚ СЂРµР°Р»СЊРЅРѕ Р±С‹Р»Рѕ РїСЂРѕС‡РёС‚Р°РЅРѕ.
             const auto bytesRead = file.gcount();
 
             for (std::streamsize i = 0; i < bytesRead; ++i) {
 
-                // XOR с текущим байтом.
+                // XOR СЃ С‚РµРєСѓС‰РёРј Р±Р°Р№С‚РѕРј.
                 hash ^= static_cast<unsigned char>(buffer[i]);
 
-                // Умножение на FNV prime.
+                // РЈРјРЅРѕР¶РµРЅРёРµ РЅР° FNV prime.
                 hash *= fnvPrime;
             }
         }

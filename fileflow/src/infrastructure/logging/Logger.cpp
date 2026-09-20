@@ -1,4 +1,4 @@
-#include "Logger.h"
+п»ї#include "Logger.h"
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/spdlog.h>
@@ -14,8 +14,8 @@ namespace fileflow::infrastructure::logging {
 
         std::shared_ptr<spdlog::logger>& applicationLogger()
         {
-            // static означает, что logger создаётся один раз
-            // и живёт до завершения программы.
+            // static РѕР·РЅР°С‡Р°РµС‚, С‡С‚Рѕ logger СЃРѕР·РґР°С‘С‚СЃСЏ РѕРґРёРЅ СЂР°Р·
+            // Рё Р¶РёРІС‘С‚ РґРѕ Р·Р°РІРµСЂС€РµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹.
             static std::shared_ptr<spdlog::logger> logger;
 
             return logger;
@@ -32,7 +32,7 @@ namespace fileflow::infrastructure::logging {
             auto logger =
                 spdlog::stdout_color_mt("fileflow");
 
-            // Формат:
+            // Р¤РѕСЂРјР°С‚:
             //
             // [2026-09-06 17:20:15.123] [info] Application started
             //
