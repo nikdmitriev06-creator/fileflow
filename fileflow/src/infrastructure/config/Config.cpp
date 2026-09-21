@@ -31,6 +31,8 @@ namespace fileflow::infrastructure::config {
 
         Config config;
 
+
+
         // value() позволяет использовать значение по умолчанию,
         // если соответствующего поля нет в JSON.
         config.workerCount =
@@ -48,11 +50,23 @@ namespace fileflow::infrastructure::config {
         config.httpPort =
             json.value("http_port", std::uint16_t{ 8080 });
 
+        config.maxUploadSizeBytes =
+            json.value(
+                "max_upload_size_bytes",
+                std::size_t{ 10 * 1024 * 1024 }
+            );
+
         // Нулевое количество worker'ов не имеет смысла:
         // задачи никогда не будут обработаны.
         if (config.workerCount == 0) {
             throw std::runtime_error(
                 "worker_count must be greater than zero"
+            );
+        }
+
+        if (config.maxUploadSizeBytes == 0) {
+            throw std::runtime_error(
+                "max_upload_size_bytes must be greater than zero"
             );
         }
 

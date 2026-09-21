@@ -116,6 +116,25 @@ namespace fileflow::application {
         domain::JobOperation operation
     )
     {
+        if (filename.empty()) {
+            throw std::invalid_argument(
+                "Filename must not be empty"
+            );
+        }
+
+        // Ограничиваем размер имени файла.
+        if (filename.size() > 255) {
+            throw std::invalid_argument(
+                "Filename is too long"
+            );
+        }
+
+        if (content.size() > config_.maxUploadSizeBytes) {
+            throw std::invalid_argument(
+                "File is too large"
+            );
+        }
+
         const auto jobId = nextJobId_.fetch_add(1);
 
         /*

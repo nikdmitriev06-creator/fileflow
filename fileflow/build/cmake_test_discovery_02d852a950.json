@@ -1,5 +1,5 @@
 {
-  "tests": 21,
+  "tests": 23,
   "name": "AllTests",
   "testsuites": [
     {
@@ -108,32 +108,42 @@
     },
     {
       "name": "HttpServerTest",
-      "tests": 5,
+      "tests": 7,
       "testsuite": [
         {
           "name": "HealthEndpoint",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
-          "line": 90
+          "line": 91
         },
         {
           "name": "CreateJob",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
-          "line": 121
+          "line": 122
         },
         {
           "name": "GetExistingJob",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
-          "line": 160
+          "line": 161
         },
         {
           "name": "GetUnknownJobReturnsNotFound",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
-          "line": 223
+          "line": 224
         },
         {
           "name": "UploadFile",
           "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
-          "line": 249
+          "line": 250
+        },
+        {
+          "name": "UploadTooLargeFileReturnsBadRequest",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 352
+        },
+        {
+          "name": "UploadTooLongFilenameReturnsBadRequest",
+          "file": "C:\\Users\\genos\\source\\repos\\FileFlow\\fileflow\\tests\\HttpServerTests.cpp",
+          "line": 402
         }
       ]
     }

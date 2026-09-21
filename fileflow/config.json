@@ -2,5 +2,6 @@
     "worker_count": 3,
     "log_level": "info",
     "storage_directory": "storage",
-    "http_port": 8080
+    "http_port": 8080,
+    "max_upload_size_bytes": 10485760
 }

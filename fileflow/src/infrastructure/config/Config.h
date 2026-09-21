@@ -20,12 +20,13 @@ namespace fileflow::infrastructure::config {
      */
     struct Config {
         std::size_t workerCount{ 3 };
-
         std::string logLevel{ "info" };
-
         std::string storageDirectory{ "storage" };
-
         std::uint16_t httpPort{ 8080 };
+
+        // Максимальный размер одного загружаемого файла.
+        // 10 MiB — разумное ограничение для текущей версии сервиса.
+        std::size_t maxUploadSizeBytes{ 10 * 1024 * 1024 };
     };
 
     /**

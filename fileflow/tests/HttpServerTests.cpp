@@ -42,6 +42,7 @@ namespace {
             config.workerCount = 1;
             config.storageDirectory = "storage/http_tests";
             config.httpPort = TestPort;
+            config.maxUploadSizeBytes = 10 * 1024 * 1024;
 
             application =
                 std::make_unique<Application>(config);
@@ -346,5 +347,104 @@ namespace {
         FAIL() << "Job was not completed in time";
     }
 
+}
+
+TEST_F(HttpServerTest, UploadTooLargeFileReturnsBadRequest)
+{
+    httplib::Client client(
+        "localhost",
+        TestPort
+    );
+
+    // Config по умолчанию в тесте использует лимит 10 MiB.
+    const std::string fileContent(
+        10 * 1024 * 1024 + 1,
+        'A'
+    );
+
+    httplib::MultipartFormDataItems items = {
+        {
+            "file",
+            fileContent,
+            "large.txt",
+            "text/plain"
+        },
+        {
+            "operation",
+            "calculate_hash",
+            "",
+            "text/plain"
+        }
+    };
+
+    const auto response =
+        client.Post(
+            "/files",
+            items
+        );
+
+    ASSERT_TRUE(response);
+
+    EXPECT_EQ(
+        response->status,
+        400
+    );
+
+    const auto responseJson =
+        json::parse(response->body);
+
+    EXPECT_EQ(
+        responseJson.at("error"),
+        "File is too large"
+    );
+}
+
+TEST_F(HttpServerTest, UploadTooLongFilenameReturnsBadRequest)
+{
+    httplib::Client client(
+        "localhost",
+        TestPort
+    );
+
+    const std::string filename(
+        256,
+        'a'
+    );
+
+    httplib::MultipartFormDataItems items = {
+        {
+            "file",
+            "Hello",
+            filename,
+            "text/plain"
+        },
+        {
+            "operation",
+            "calculate_hash",
+            "",
+            "text/plain"
+        }
+    };
+
+    const auto response =
+        client.Post(
+            "/files",
+            items
+        );
+
+    ASSERT_TRUE(response);
+
+    EXPECT_EQ(
+        response->status,
+        400
+    );
+
+    const auto responseJson =
+        json::parse(response->body);
+
+    EXPECT_EQ(
+        responseJson.at("error"),
+        "Filename is too long"
+    );
 }
 
